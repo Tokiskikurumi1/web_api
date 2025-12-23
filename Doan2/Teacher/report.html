@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/report.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <title>Thống kê - Báo cáo</title>
+  </head>
+
+  <body>
+    <!--DÙNG ĐỂ KHI XUỐNG GIAO DIỆN ĐIỆN THOẠI THAO TÁC VỚI MENU-ICON-->
+    <div class="overlay" id="overlay"></div>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--CONTAINER-->
+    <!--RIGHT CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+      <!--THẺ MAIN-->
+      <main>
+        <div class="page-header">
+          <h2 class="page-title">Thống kê - báo cáo</h2>
+          <div class="list-btn-top">
+            <button class="btn btn-primary">
+              <i class="fas fa-file-excel"></i> Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- === 1. THỐNG KÊ KHÓA HỌC === -->
+        <h3 class="section-title">1. Thống kê khóa học</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--blue-)">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-value">4</div>
+            <div class="stat-label">Khóa học đang dạy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--green)">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-value">78%</div>
+            <div class="stat-label">Tỷ lệ hoàn thành trung bình</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--orange)">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-value">8.3</div>
+            <div class="stat-label">Điểm trung bình</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--purple)">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="stat-value">86</div>
+            <div class="stat-label">Bài tập đã nộp</div>
+          </div>
+        </div>
+
+        <!-- BIỂU ĐỒ CỘT -->
+        <div class="chart-column-container">
+          <h3 class="chart-title">Tỷ lệ hoàn thành theo khóa học</h3>
+          <div class="chart-column">
+            <div class="number-and-columns">
+              <div class="number-percen">
+                <span>100</span>
+                <span>90</span>
+                <span>80</span>
+                <span>70</span>
+                <span>60</span>
+                <span>50</span>
+                <span>40</span>
+                <span>30</span>
+                <span>20</span>
+                <span>10</span>
+                <span>0</span>
+              </div>
+              <div class="box-column">
+                <div
+                  class="chart-serie"
+                  style="--i: 80%; --color: var(--blue-)"
+                >
+                  <h3 class="column-title">80%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 87%; --color: var(--green)"
+                >
+                  <h3 class="column-title">87%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 60%; --color: var(--orange)"
+                >
+                  <h3 class="column-title">60%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 50%; --color: var(--purple)"
+                >
+                  <h3 class="column-title">50%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 80%; --color: var(--blue-)"
+                >
+                  <h3 class="column-title">80%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 87%; --color: var(--green)"
+                >
+                  <h3 class="column-title">87%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 60%; --color: var(--orange)"
+                >
+                  <h3 class="column-title">60%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 50%; --color: var(--purple)"
+                >
+                  <h3 class="column-title">50%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 60%; --color: var(--orange)"
+                >
+                  <h3 class="column-title">60%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 50%; --color: var(--purple)"
+                >
+                  <h3 class="column-title">50%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 60%; --color: var(--orange)"
+                >
+                  <h3 class="column-title">60%</h3>
+                </div>
+                <div
+                  class="chart-serie"
+                  style="--i: 50%; --color: var(--purple)"
+                >
+                  <h3 class="column-title">50%</h3>
+                </div>
+              </div>
+            </div>
+            <div class="name-course">
+              <span>Tiếng anh cơ bản </span>
+              <span>Tiếng anh cơ bản</span>
+
+              <span>Tiếng anh cơ bản</span>
+
+              <span>Tiếng anh cơ bản</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- === 2. THỐNG KÊ HỌC VIÊN === -->
+        <h3 class="section-title">2. Thống kê học viên</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--blue-)">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-value">156</div>
+            <div class="stat-label">Tổng học viên</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--green)">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-value">118</div>
+            <div class="stat-label">Đang học</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--yellow)">
+              <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Nghỉ học</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--purple)">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="stat-value">26</div>
+            <div class="stat-label">Hoàn thành</div>
+          </div>
+        </div>
+
+        <!--TIẾN ĐỘ HỌC TRUNG BÌNH -->
+        <div class="chart-circle-container">
+          <h3 class="chart-title">Tiến độ học tập trung bình</h3>
+          <div class="info-circle-box">
+            <div class="circle-box"></div>
+            <div class="progress-box">
+              <div class="phan-tram">
+                <span>Dưới 50%</span>
+                <div style="background-color: var(--red)"></div>
+              </div>
+              <div class="phan-tram">
+                <span>50%-75%</span>
+                <div style="background-color: var(--orange)"></div>
+              </div>
+              <div class="phan-tram">
+                <span>75%-90%</span>
+                <div style="background-color: var(--yellow)"></div>
+              </div>
+              <div class="phan-tram">
+                <span>Trên 90%</span>
+                <div style="background-color: var(--green)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- === 3. THỐNG KÊ TƯƠNG TÁC === -->
+        <h3 class="section-title">3. Thống kê tương tác</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--blue-)">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="stat-value">2,847</div>
+            <div class="stat-label">Lượt truy cập</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--green)">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-value">3.2h</div>
+            <div class="stat-label">Thời gian học TB</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--orange)">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="stat-value">92%</div>
+            <div class="stat-label">Tần suất nộp bài</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--purple)">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="stat-value">214</div>
+            <div class="stat-label">Bình luận diễn đàn</div>
+          </div>
+        </div>
+
+        <!-- === 4. BÁO CÁO TỔNG HỢP === -->
+        <h3 class="section-title">4. Báo cáo tổng hợp & Cảnh báo</h3>
+
+        <!-- Cảnh báo học viên yếu -->
+        <div class="alert-card">
+          <i class="fas fa-exclamation-triangle alert-icon"></i>
+          <div>
+            <strong>3 học viên cần hỗ trợ:</strong> Nguyễn Văn E (Tiếng anh cơ
+            bản - 42%), Trần Thị F (TOEIC 750+ - 38%), Lê Văn G (Luyện nghe
+            TOEIC - 45%)
+          </div>
+        </div>
+
+        <!-- Bảng so sánh khóa học -->
+        <div class="table-compare-container">
+          <h3 class="chart-title">So sánh hiệu quả giữa các khóa học</h3>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Khóa học</th>
+                <th>Học viên</th>
+                <th>Hoàn thành</th>
+                <th>Điểm TB</th>
+                <th>Nộp bài</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tiếng anh cơ bản</strong></td>
+                <td>68</td>
+                <td>82%</td>
+                <td>8.6</td>
+                <td>94%</td>
+              </tr>
+              <tr>
+                <td><strong>TOEIC 750+</strong></td>
+                <td>52</td>
+                <td>75%</td>
+                <td>8.1</td>
+                <td>88%</td>
+              </tr>
+              <tr>
+                <td><strong>Luyện nghe TOEIC</strong></td>
+                <td>36</td>
+                <td>69%</td>
+                <td>7.8</td>
+                <td>85%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/header.js"></script>
+  </body>
+</html>

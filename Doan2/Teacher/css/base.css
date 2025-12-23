@@ -1,0 +1,62 @@
+:root {
+  --white: #fff;
+  --black: black;
+  --grey: #4b5563;
+  --blue-black: #334155;
+  --blue-: #2563eb;
+  --grey-border: #e5e7eb;
+  --grey-light: #f1f3f5;
+  --green: #10b962;
+  --yellow: #facc15;
+  --red: #ef4444;
+  --orange: #f97316;
+  --brown: #854d0e;
+  --purple: #8b5cf6;
+  --border-radius: 8px;
+  --transition: all 0.25s ease;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+body {
+  width: 100%;
+  /* font-family: "arial"; */
+  margin: 0;
+  background-color: var(--white);
+  /* position: relative; */
+}
+
+/*==================================RIGHT CONTENT ==============================================*/
+
+#right-content {
+  margin-left: 260px;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+/*==================================THẺ MAIN ==============================================*/
+
+main {
+  padding: 1.5rem;
+}
+
+/* ========================== OVERLAY === */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  display: none;
+}
+.overlay.active {
+  display: block;
+}

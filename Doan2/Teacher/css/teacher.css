@@ -1,0 +1,171 @@
+/*==================================RIGHT CONTENT ==============================================*/
+
+/* #right-content {
+  margin-left: 260px;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+} */
+
+/*==================================THẺ MAIN  ========*/
+main {
+  padding: 1.5rem;
+}
+
+.title-comback {
+  margin-bottom: 1.5rem;
+}
+
+.title h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+/*==================================THẺ CARDS  ========*/
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--grey-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  font-size: 0.875rem;
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.stat-card p {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+.stat-card small {
+  font-size: 0.75rem;
+}
+
+/*==================================THẺ COURSE  ========*/
+section {
+  margin-bottom: 2rem;
+}
+
+.process-course {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.process-course h3 {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.process-course a {
+  font-size: 0.875rem;
+  color: #2563eb;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--grey-border);
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+}
+
+.course-card .process {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.process div h4 {
+  font-weight: 600;
+}
+/*==================================TỈ LỆ HOÀN THÀNH BÀI TẬP  ========*/
+.finish-work {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/*==================================THỐNG KÊ HỌC SINH MỚI ĐĂNG KÝ KHÓA HỌC  ========*/
+.table-student {
+  padding: 22px;
+  width: 100%;
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+}
+
+.table-student table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--white);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--white);
+  border: 1px solid var(--grey-border);
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 1160px) {
+  .table-student {
+    overflow-x: scroll;
+  }
+  .table-student table {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* .left-slide {
+    transform: translateX(-100%);
+  }
+  .left-slide.active {
+    transform: translateX(0);
+  } */
+  /* #right-content {
+    margin-left: 0;
+  } */
+  /* header {
+    justify-content: space-between;
+  }
+  header .menu-toggle {
+    display: block;
+  } */
+}
+
+@media (max-width: 540px) {
+  .stats-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .finish-work {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

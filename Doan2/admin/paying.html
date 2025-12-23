@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Components/base.css" />
+    <link rel="stylesheet" href="./Components/header_siderbar.css" />
+    <link rel="stylesheet" href="./css/paying.css" />
+    <title>Quản lý thanh toán</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="content">
+          <div class="content-header">
+            <h2>Quản lý thanh toán</h2>
+
+            <div class="stats">
+              <div class="list-card">
+                <div class="card">
+                  <h3>💰Tổng doanh thu hôm nay</h3>
+                  <p id="Total">0</p>
+                </div>
+                <div class="card">
+                  <h3>📅 Giao dịch hôm nay</h3>
+                  <p id="totalTrade">0</p>
+                </div>
+                <div class="card">
+                  <h3>✅ Đã thanh toán</h3>
+                  <p id="tradeSuccsess">0</p>
+                </div>
+                <div class="card">
+                  <h3>❌ Thất bại</h3>
+                  <p id="tradeFaild">0</p>
+                </div>
+              </div>
+              <div class="chart-paying-course">
+                <h3>Khóa học bán chạy</h3>
+                <div class="char-container"></div>
+              </div>
+            </div>
+
+            <!-- BIỂU ĐỒ CỘT -->
+            <div class="chart-column-container">
+              <h3 class="chart-title">Biểu đồ doanh thu theo tháng</h3>
+              <div class="chart-column">
+                <div class="number-and-columns">
+                  <div class="number-percen">
+                    <span>100</span>
+                    <span>90</span>
+                    <span>80</span>
+                    <span>70</span>
+                    <span>60</span>
+                    <span>50</span>
+                    <span>40</span>
+                    <span>30</span>
+                    <span>20</span>
+                    <span>10</span>
+                    <span>0</span>
+                  </div>
+                  <div class="box-column">
+                    <div
+                      class="chart-serie"
+                      style="--i: 80%; --color: var(--blue-)"
+                    >
+                      <h3 class="column-title">80%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 87%; --color: var(--green)"
+                    >
+                      <h3 class="column-title">87%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 60%; --color: var(--orange)"
+                    >
+                      <h3 class="column-title">60%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 50%; --color: var(--purple)"
+                    >
+                      <h3 class="column-title">50%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 80%; --color: var(--blue-)"
+                    >
+                      <h3 class="column-title">80%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 87%; --color: var(--green)"
+                    >
+                      <h3 class="column-title">87%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 60%; --color: var(--orange)"
+                    >
+                      <h3 class="column-title">60%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 50%; --color: var(--purple)"
+                    >
+                      <h3 class="column-title">50%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 60%; --color: var(--orange)"
+                    >
+                      <h3 class="column-title">60%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 50%; --color: var(--purple)"
+                    >
+                      <h3 class="column-title">50%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 60%; --color: var(--orange)"
+                    >
+                      <h3 class="column-title">60%</h3>
+                    </div>
+                    <div
+                      class="chart-serie"
+                      style="--i: 50%; --color: var(--purple)"
+                    >
+                      <h3 class="column-title">50%</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="name-course">
+                  <span>Tiếng anh cơ bản </span>
+                  <span>Tiếng anh cơ bản</span>
+
+                  <span>Tiếng anh cơ bản</span>
+
+                  <span>Tiếng anh cơ bản</span>
+                </div>
+              </div>
+            </div>
+
+            <!--TÌM KIẾM THÔNG TIN GIAO DỊCH -->
+            <div class="actions">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="searchPayment"
+                  placeholder="🔍 Tìm kiếm theo tên học viên/ mã giao dịch"
+                />
+              </div>
+              <div class="form-group">
+                <label>Trạng thái thanh toán</label>
+                <select id="roleFilter">
+                  <option value="all">Tất cả</option>
+                  <option value="paid">Đã thanh toán</option>
+                  <option value="unpaid">Chưa thanh toán</option>
+                  <option value="confirm">Chờ xác nhận</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Khóa học</label>
+                <select id="roleFilterCourse">
+                  <option value="all">Tất cả</option>
+                  <option value="ielts">IELTS</option>
+                  <option value="toeic">TOEIC</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="date-actions">
+              <div class="form-group">
+                <label>Từ ngày:</label> <input type="date" id="fromDate" />
+              </div>
+              <div class="form-group">
+                <label>Đến ngày:</label>
+                <input type="date" id="toDate" />
+              </div>
+              <div class="form-group">
+                <button id="applyDate">Áp dụng</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="paymentTable">
+            <table class="payment-table">
+              <thead>
+                <tr>
+                  <th>Mã giao dịch</th>
+                  <th>Học viên</th>
+                  <th>Khóa học</th>
+                  <th>Số tiền</th>
+                  <th>Phương thức thanh toán</th>
+                  <th>Ngày thanh toán</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="paymentTableBody"></tbody>
+            </table>
+          </div>
+
+          <div id="paymentModal" class="modal">
+            <div class="modal-content">
+              <h3>Thông tin hóa đơn</h3>
+              <span style="margin-top: 10px"
+                ><b>Mã giao dịch:</b>
+                <p id="payId"></p>
+              </span>
+              <span
+                ><b>Học viên:</b>
+                <p id="payName"></p
+              ></span>
+              <span
+                ><b>Khóa học:</b>
+                <p id="payCourse"></p
+              ></span>
+              <span
+                ><b>Số tiền:</b>
+                <p id="payAmount"></p
+              ></span>
+              <span
+                ><b>Phương thức:</b>
+                <p id="payMethod"></p
+              ></span>
+              <span
+                ><b>Ngày:</b>
+                <p id="payDate"></p
+              ></span>
+              <span
+                ><b>Trạng thái:</b>
+                <p id="payStatus"></p
+              ></span>
+              <button id="closeModalBtn" class="closeModalBtn">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/header_siderbar.js"></script>
+    <script src="./js/paying.js"></script>
+  </body>
+</html>

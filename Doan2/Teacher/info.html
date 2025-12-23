@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/info.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <title>Thông tin cá nhân</title>
+  </head>
+  <body>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+    <!--RIGHT CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+      <!--THẺ MAIN-->
+      <main>
+        <div class="btns-container">
+          <!-- === BACK BUTTON === -->
+          <div class="save-change-button">
+            <button id="save-btn" class="btn">
+              <i class="fas fa-save"></i> Lưu thay đổi
+            </button>
+          </div>
+          <div class="save-password-button">
+            <button id="change-password-btn" class="btn">
+              <i class="fas fa-sync-alt"></i>Đổi mật khẩu
+            </button>
+          </div>
+        </div>
+        <div class="infor-actions">
+          <!-- === PAGE TITLE + ACTIONS === -->
+          <div class="page-header">
+            <h2 class="page-title">Thông tin cá nhân</h2>
+          </div>
+
+          <div class="info-container">
+            <div class="form-group">
+              <label class="form-label" for="full-name">Họ và tên</label>
+              <input
+                type="text"
+                id="full-name"
+                class="form-input"
+                placeholder="Nhập họ và tên"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="date-of-birth">Ngày sinh</label>
+              <input
+                type="date"
+                id="date-of-birth"
+                class="form-input"
+                placeholder="Chọn ngày sinh"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Giới tính</label>
+              <select name="gender" id="gender">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Huyện </label>
+              <input
+                type="text"
+                name=""
+                id="district"
+                placeholder="Nhập huyện"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tỉnh </label>
+              <input
+                type="text"
+                name=""
+                id="province"
+                placeholder="Nhập tỉnh"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Số điện thoại</label>
+              <input
+                type="tel"
+                id="phone-number"
+                class="form-input"
+                placeholder="Nhập số điện thoại"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input"
+                placeholder="Nhập email"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL ĐỔI MẬT KHẨU -->
+        <div id="modal-change-password" class="modal-change-password">
+          <div class="modal-contents">
+            <form action="change-password">
+              <h2>Đổi mật khẩu</h2>
+              <div class="content">
+                <div class="form-group">
+                  <label for="current-password">Mật khẩu hiện tại:</label>
+                  <div class="password-wrapper">
+                    <input
+                      type="text"
+                      id="current-password"
+                      class="form-input"
+                      placeholder="Nhập mật khẩu hiện tại"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="new-password">Mật khẩu mới:</label>
+                  <div class="password-wrapper">
+                    <input
+                      type="text"
+                      id="new-password"
+                      class="form-input"
+                      placeholder="Nhập mật khẩu mới"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirm-password">Nhập lại mật khẩu mới:</label>
+                  <div class="password-wrapper">
+                    <input
+                      type="text"
+                      id="confirm-password"
+                      class="form-input"
+                      placeholder="Nhập lại mật khẩu mới"
+                    />
+                  </div>
+                </div>
+
+                <div class="action-btn-change-password">
+                  <button type="submit" class="btn submit-btn">
+                    <i class="fas fa-key"></i> Lưu mật khẩu
+                  </button>
+                  <button
+                    type="button"
+                    class="btn cancel-btn"
+                    onclick="closeModal()"
+                  >
+                    Hủy
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!--DÙNG ĐỂ KHI XUỐNG GIAO DIỆN ĐIỆN THOẠI THAO TÁC VỚI MENU-ICON-->
+    <div class="overlay" id="overlay"></div>
+    <script src="./js/header.js"></script>
+    <script src="./js/info.js"></script>
+  </body>
+</html>

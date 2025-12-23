@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/manage_homework.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <title>Quản lý bài tập</title>
+  </head>
+  <body>
+    <div id="sidebar-placeholder"></div>
+    <!-- Main Content -->
+    <div id="right-content">
+      <div id="header-placeholder"></div>
+
+      <!-- Main Content -->
+      <main>
+        <!-- manage-homework.html -->
+        <div class="page-header">
+          <h2 class="page-title">Bài tập của tôi</h2>
+          <button class="btn btn-primary" id="create-new-homework">
+            <i class="fas fa-plus"></i> Tạo bài tập mới
+          </button>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <div class="tab active">Tất cả (8)</div>
+          <div class="tab">Đã xuất bản (6)</div>
+          <div class="tab">Bản nháp (2)</div>
+        </div>
+
+        <!-- Assignment Grid -->
+        <div class="assignment-grid">
+          <!-- Bài tập 1 -->
+          <div class="assignment-card">
+            <div class="assignment-card-header">
+              <div class="assignment">
+                <h3 class="assignment-title">Thì hiện tại đơn</h3>
+                <span class="badge badge-published">Đã xuất bản</span>
+              </div>
+              <div class="assignment-meta">
+                <span><i class="fas fa-book"></i> Tiếng anh cơ bản</span>
+                <span><i class="fas fa-calendar"></i> Hạn: 08/11/2025</span>
+              </div>
+            </div>
+            <div class="assignment-body">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value done">42</div>
+                  <div class="stat-label">Đã nộp</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value done-yet">8</div>
+                  <div class="stat-label">Chưa nộp</div>
+                </div>
+              </div>
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span>Tỷ lệ nộp</span>
+                  <span>84%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 84%"></div>
+                </div>
+              </div>
+              <div class="assignment-actions">
+                <button class="btn btn-primary btn-sm">Xem chi tiết</button>
+                <button class="btn btn-outline btn-sm">Chỉnh sửa</button>
+                <button class="btn btn-outline btn-sm text-red">Xóa</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài tập 2 -->
+          <div class="assignment-card">
+            <div class="assignment-card-header">
+              <div class="assignment">
+                <h3 class="assignment-title">Thì hiện tại đơn</h3>
+                <span class="badge badge-published">Đã xuất bản</span>
+              </div>
+              <div class="assignment-meta">
+                <span><i class="fas fa-book"></i> Tiếng anh cơ bản</span>
+                <span><i class="fas fa-calendar"></i> Hạn: 08/11/2025</span>
+              </div>
+            </div>
+            <div class="assignment-body">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value done">42</div>
+                  <div class="stat-label">Đã nộp</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value done-yet">8</div>
+                  <div class="stat-label">Chưa nộp</div>
+                </div>
+              </div>
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span>Tỷ lệ nộp</span>
+                  <span>84%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+              </div>
+              <div class="assignment-actions">
+                <button class="btn btn-primary btn-sm">Xem chi tiết</button>
+                <button class="btn btn-outline btn-sm">Chỉnh sửa</button>
+                <button class="btn btn-outline btn-sm text-red">Xóa</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài tập 3 - Nháp -->
+          <div class="assignment-card">
+            <div class="assignment-card-header">
+              <div class="assignment">
+                <h3 class="assignment-title">Bài đọc band 850+</h3>
+                <span class="badge badge-draft">Bản nháp</span>
+              </div>
+              <div class="assignment-meta">
+                <span><i class="fas fa-book"></i> TOEIC cấp tốc</span>
+                <span><i class="fas fa-calendar"></i> Chưa đặt hạn</span>
+              </div>
+            </div>
+            <div class="assignment-body">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value">—</div>
+                  <div class="stat-label">Chưa xuất bản</div>
+                </div>
+              </div>
+              <div class="assignment-actions">
+                <button class="btn btn-outline btn-sm">Tiếp tục soạn</button>
+                <button class="btn btn-outline btn-sm text-red">Xóa</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create Assignment Modal -->
+        <div class="modal" id="create-assignment-modal">
+          <div class="modal-content">
+            <h3>Tạo bài tập</h3>
+            <form id="create-course-form">
+              <label>Tên bài tập</label>
+              <input type="text" id="assignment-name" required />
+
+              <label>Khóa học</label>
+              <select id="course-select"></select>
+
+              <label>Video bài giảng</label>
+              <select id="video-select"></select>
+
+              <label>Mô Tả</label>
+              <textarea type="text" id="assignmentDes-detail"></textarea>
+
+              <label>Trạng thái</label>
+              <select id="course-status">
+                <option value="incomplete">Chưa hoàn thành</option>
+                <option value="completed">Đã hoàn thành</option>
+              </select>
+
+              <div class="modal-actions">
+                <button type="button" class="cancel" id="cancel-create">
+                  Hủy
+                </button>
+                <button type="submit" class="save">Tạo khóa học</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="btn btn-outline btn-sm">Trước</button>
+          <button class="btn btn-primary btn-sm">1</button>
+          <button class="btn btn-outline btn-sm">2</button>
+          <button class="btn btn-outline btn-sm">Sau</button>
+        </div>
+      </main>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/manage_homework.js"></script>
+  </body>
+</html>

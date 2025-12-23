@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/detail_course.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <title>Chi tiết khóa học</title>
+  </head>
+  <body>
+    <div id="sidebar-placeholder"></div>
+    <div id="right-content">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="page-header">
+          <h2 class="page-title">Chi tiết khóa học</h2>
+        </div>
+
+        <div class="box-detail-course">
+          <form class="course-form">
+            <div class="form-group">
+              <div class="form-label">
+                Tên giảng viên:
+                <span class="name-teacher" style="color: var(--blue-)"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tên khóa học</label>
+              <input
+                id="course-title"
+                type="text"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Loại khóa học</label>
+              <select class="form-select" id="course-select">
+                <option value="TOEIC">TOEIC</option>
+                <option value="IELTS">IELTS</option>
+                <option value="Combo">Combo</option>
+                <option value="BEGINNER">TIẾNG ANH CĂN BẢN</option>
+                <option value="COMBO-4">COMBO TOEIC 4 KỸ NĂNG</option>
+                <option value="COMBO-2">COMBO TOEIC 2 KỸ NĂNG</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Ngày tạo</label>
+              <input id="date-input" type="date" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mô tả</label>
+              <textarea
+                id="course-detail"
+                class="form-input"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Trạng thái</label>
+              <select id="course-status" class="form-select">
+                <option value="incomplete">Chưa hoàn thành</option>
+                <option value="completed">Đã hoàn thành</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Giá tiền</label>
+              <input
+                id="number-price"
+                type="number"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label number-student">Số học viên: 0</label>
+            </div>
+
+            <hr />
+
+            <div class="video-section">
+              <div class="video-header">
+                <h3>Danh sách video</h3>
+                <button id="add-video-btn" class="add-btn">
+                  <i class="fa-solid fa-plus"></i> Thêm video
+                </button>
+              </div>
+
+              <div id="video-list"></div>
+            </div>
+
+            <div class="action-bar">
+              <button id="cancel-course" class="cancel-btn">Hủy</button>
+              <button
+                id="save-course"
+                class="save-btn"
+                type="button"
+              >
+                Lưu thay đổi
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <!-- Modal Thêm Video -->
+      <div class="modal" id="add-video-modal">
+        <div class="modal-content">
+          <h3>Thêm video mới</h3>
+          <form id="add-video-form">
+            <label>Tên video</label>
+            <input type="text" id="video-title" required />
+
+            <label>Link video</label>
+            <input type="url" id="video-url" required />
+
+            <div class="modal-actions">
+              <button type="button" class="cancel" id="cancel-video">
+                Hủy
+              </button>
+              <button type="submit" class="save">Thêm</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--MODAL sửa video-->
+      <div id="edit-video-modal" class="modal">
+        <form id="edit-video-form" class="modal-content">
+          <h3>Sửa video</h3>
+          <label>Tiêu đề</label>
+          <input type="text" id="edit-video-title" required />
+
+          <label>Link video</label>
+          <input type="text" id="edit-video-url" required />
+
+          <div class="modal-btns">
+            <button type="button" id="cancel-edit-video" class="cancel-btn">
+              Hủy
+            </button>
+            <button type="submit" class="save-btn">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/detail_course.js"></script>
+  </body>
+</html>

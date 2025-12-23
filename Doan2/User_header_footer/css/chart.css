@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  
+  background-color: var(--white-);
+}
+
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 300px;
+  border-left: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60px;
+}
+
+.bar {
+  width: 100%;
+  background-color: var(--blue-);
+  color: var(--white-);
+  font-size: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: height 0.3s ease;
+}
+
+.label {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  white-space: normal;
+  overflow: visible;
+  word-break: break-word;
+  width: 100%;
+}
+
+.bar-group:first-child {
+  margin-left: 20px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.label-row .label {
+  width: 60px;
+}
+
+@media (max-width: 600px) {
+  .chart {
+    height: 200px;
+    gap: 8px;
+  }
+
+  .bar-group {
+    width: 50px;
+  }
+
+  .label-row .label {
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .bar {
+    font-size: 12px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}

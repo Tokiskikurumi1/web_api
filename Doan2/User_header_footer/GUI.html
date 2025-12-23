@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../Assets/CSS/Base/reset.css">
+  <link rel="stylesheet" href="../Assets/CSS/Base/base.css">
+  <link rel="stylesheet" href="../Assets/CSS/Base/card.css">
+  <link rel="stylesheet" href="../Assets/CSS/Base/btn.css">
+  <link rel="stylesheet" href="./css/GUI.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <a href="" class="header-logo">
+        <h1>K-ENGLISH</h1>
+      </a>
+      <div class="header-nav-center">
+        <ul>
+
+          <li><a href="#">KHÓA HỌC</a></li>
+          <li><a href="#">BÀI TẬP</a></li>
+          <li><a href="#">CỘNG ĐỒNG</a></li>
+          <li><a href="#">CỬA HÀNG</a></li>
+          <li><a href="#">GIỚI THIỆU</a></li>
+        </ul>
+      </div>
+      <div class="header-nav-right">
+        <div class="header-search">
+          <div class="header-search-box" id="searchBox">
+            <input type="text" placeholder="Tìm kiếm..." />
+          </div>
+          <div class="header-search-icon" id="searchIcon" onclick="toggleSearch()">
+            <img src="./img/img_GUI/glass.png" alt="" />
+          </div>
+          <div class="header-search-results">
+            <h2>Kết quả tìm kiếm</h2>
+            <br />
+            <div id="search-results-container"></div>
+          </div>
+        </div>
+        <div class="header-notification">
+          <div class="header-notification-container" id="notificationContainer">
+            <div class="header-notification-icon">
+              <img src="./img/img_GUI/bell.png" alt="notification" class="notification-icon" />
+            </div>
+
+            <div class="header-notification-count"></div>
+
+            <div class="dropdown-menu notification-menu">
+              <ul>
+                <li>
+                  <p>Thông báo</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-message">
+          <div class="header-message-icon">
+            <img src="./img/img_GUI/messenger.png" alt="notification" />
+          </div>
+          <div class="header-notification-count"></div>
+        </div>
+        <div class="header-user">
+          <div class="header-user-container" id="userContainer">
+            <div class="header-user-icon">
+              <img src="./img/img_GUI/user.png" alt="avatar" class="avatar" />
+            </div>
+
+            <div class="user-name-popup">
+              <p>Name User</p>
+            </div>
+
+            <div class="dropdown-menu user-menu">
+              <ul>
+                <li><a href="#">Thông tin tài khoản</a></li>
+                <li><a href="#">Hồ sơ của tôi</a></li>
+                <li><a href="#">Lớp của tôi</a></li>
+                <li><a href="#">Lịch sử thanh toán</a></li>
+                <li><a href="#">Thoát</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="burger-toggle" id="burgerToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="burger-menu" id="burgerMenu">
+          <ul>
+            <li><a href="#">KHÓA HỌC</a></li>
+            <li><a href="#">BÀI TẬP</a></li>
+            <li><a href="#">CỘNG ĐỒNG</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+</body>
+<script src="./js/GUI.js"></script>
+
+</html>

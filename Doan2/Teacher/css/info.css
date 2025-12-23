@@ -1,0 +1,280 @@
+/* ========= INFO PAGE LAYOUT ========= */
+
+.btns-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#save-btn {
+  background-color: var(--blue-);
+  color: var(--white);
+}
+
+#change-password-btn {
+  background-color: var(--grey);
+  color: var(--white);
+}
+/* ========= INFO PAGE LAYOUT ========= */
+.infor-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-container {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  width: 650px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* ========= FORM GROUP ========= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-label {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* ========= INPUTS ========= */
+.form-input,
+#district,
+#province,
+#gender {
+  padding: 10px 12px;
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  background-color: var(--white);
+}
+
+/* .form-input:focus,
+#district:focus,
+#province:focus,
+#gender:focus {
+  border-color: var(--blue-);
+  background-color: var(--white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  outline: none;
+} */
+
+.action-btn-change-password {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+.submit-btn {
+  background-color: var(--blue-);
+  color: white;
+}
+
+#current-password:focus,
+#new-password:focus,
+#confirm-password:focus {
+  background-color: var(--white);
+  outline: none;
+}
+/* ========= MODAL  ========= */
+/* Nền mờ khi mở modal */
+.modal-change-password {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* mặc định ẩn */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Hiển thị modal khi thêm class "show" */
+.modal-change-password.show {
+  display: flex;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+}
+
+/* Khung nội dung modal */
+.modal-contents {
+  background: white;
+  width: 90%;
+  max-width: 460px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Tiêu đề */
+.modal-contents h2 {
+  margin: 0;
+  padding: 20px 24px;
+  background-color: var(--blue-);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Nội dung form */
+.content {
+  padding: 24px;
+}
+
+/* Nhóm input */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--white);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  position: relative;
+}
+
+/* Hiệu ứng focus */
+/* .form-input:focus {
+  outline: none;
+  border-color: var(--grey-border);
+} */
+
+/* Nút hành động */
+.modal-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.saveUserBtn {
+  background-color: var(--blue-);
+  color: white;
+}
+
+.closeModalBtn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.closeModalBtn:hover {
+  background: #d1d5db;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========= SELECT CUSTOM ========= */
+#gender {
+  cursor: pointer;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 1024px) {
+  .info-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-container {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .page-title {
+    font-size: 21px;
+  }
+
+  .form-input,
+  #district,
+  #province,
+  #gender {
+    font-size: 14px;
+    padding: 9px 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1rem 0.5rem;
+  }
+  .modal-contents {
+    width: 95%;
+    border-radius: 12px;
+  }
+  .content {
+    padding: 20px;
+  }
+  .action-btn {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
+
+  .btns-container {
+    justify-content: space-around;
+  }
+}

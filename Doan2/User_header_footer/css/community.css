@@ -1,0 +1,641 @@
+/* =========================================
+   1️⃣  CẤU HÌNH CHUNG & BIẾN TOÀN CỤC
+========================================= */
+:root {
+  --bg: #ffffff;
+  --muted: #f3f4f6;
+  --card: #ffffff;
+  --text: #0f172a;
+  --accent: #0ea5e9;
+  --button: #6b7280;
+  --glass: rgba(15, 23, 42, 0.04);
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+* {
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   2️⃣  TOPBAR (THANH TRÊN CÙNG)
+========================================= */
+.main-content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-content .topbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: gray;
+  z-index: 10;
+}
+
+.topbar .container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 100px;
+  gap: 20px;
+  position: relative;
+}
+
+.topbar .logo {
+  font-weight: 600;
+  color: white;
+}
+
+.topbar .searchbar {
+  width: 60%;
+  text-align: center;
+}
+
+.searchbar input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+.searchbar .img-search {
+  width: 36px;
+  height: 36px;
+  display: none;
+  cursor: pointer;
+}
+
+.searchbar .img-search img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .actions {
+  display: flex;
+  gap: 15px;
+}
+
+.actions .btn {
+  border-radius: 10px;
+  background-color: aqua;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.actions #generalBtn {
+  display: none;
+}
+
+.actions .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.logo-searchIcon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  flex: 1; /* 👈 Cho phép chiếm hết không gian có thể */
+  min-width: 0; /* 👈 Quan trọng: cho phép co nhỏ hơn nội dung */
+}
+
+.logo-searchIcon .logo {
+  /* width: 100%; */
+  font-size: 1rem;
+}
+
+.logo-searchIcon .searchbar {
+  flex: 1;
+}
+/* =============GIAO DIỆN 768
+px TRỞ XUỐNG ============ */
+/* .container-768 {
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 100px;
+  gap: 10px;
+  display: none;
+} */
+
+/* =========================================
+   3️⃣  LAYOUT (SIDEBAR + NỘI DUNG CHÍNH)
+========================================= */
+.layout {
+  min-height: 350px;
+  display: flex;
+  gap: 20px;
+  padding: 20px 200px;
+  background-color: #dbdfe6;
+}
+
+/* SIDEBAR */
+.sidebar {
+  max-width: 220px;
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+#categories {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.cat {
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.cat:hover {
+  background: #f8fafc;
+}
+
+.cat.active {
+  background: linear-gradient(90deg, #f8fafc, #ffffff);
+  font-weight: 600;
+}
+
+/* CONTENTS */
+.contents {
+  flex: 1;
+}
+
+/* =========================================
+   4️⃣  PANEL & POST
+========================================= */
+.panel {
+  background-color: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* --- DANH SÁCH BÀI VIẾT CỦA TÔI--- */
+.panel #profileSection {
+  display: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#profileSection .c-avatar {
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  margin: 0 auto;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* --- BÀI VIẾT --- */
+.post {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: linear-gradient(180deg, #fff, #fcfeff);
+  cursor: pointer;
+  padding: 12px;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* TOP CONTENT (bên trái: avatar + title) */
+/* .top-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 12px;
+} */
+
+/* .left {
+  flex: 1 1 auto;
+  max-width: 78%;
+} */
+
+.avt-name-title {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.c-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--button);
+}
+
+/* --- TIÊU ĐỀ BÀI VIẾT (title trong left) --- */
+.left .title {
+  font-weight: 600;
+  margin-top: 6px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/* --- NỘI DUNG BÀI VIẾT --- */
+.post-content {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 8px 0;
+  line-height: 1.6;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.PostImg {
+  width: 100%;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
+/* =========================================
+   5️⃣  ICON ACTIONS (TIM, COMMENT,...)
+========================================= */
+.icons-action {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.icon-card {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f3f4f6;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.icon-card p {
+  margin: 0;
+}
+
+/* =========================================
+   6️⃣  MODAL (CHI TIẾT BÀI VIẾT + ĐĂNG BÀI)
+========================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(2, 6, 23, 0.4);
+  z-index: 30;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  width: 100%;
+  max-height: 80vh;
+  max-width: 760px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.content-scroll {
+  max-height: 60vh;
+  overflow: scroll;
+}
+
+/* ẨN THANH CUỘN */
+
+.content-scroll::-webkit-scrollbar {
+  display: none;
+}
+.content-scroll {
+  scrollbar-width: none;
+}
+
+/* MODAL: BÌNH LUẬN */
+.comments {
+  margin-top: 8px;
+  border-top: 1px solid #eef2f7;
+  padding-top: 8px;
+}
+
+.comment {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+.comment .c-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.comment .c-body {
+  flex: 1;
+}
+
+.comment .c-meta {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 12px;
+  background-color: gray;
+  border-radius: var(--border-box--);
+}
+
+.comment-form input {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+#sendComment {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- FORM ĐĂNG BÀI MỚI --- */
+#newPostModal .modal-dialog {
+  max-width: 640px;
+}
+
+#newPostModal input,
+#newPostModal textarea,
+#newPostModal select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+}
+
+#newPostModal textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+#imagePreview {
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.row.right #createPost {
+  margin-top: 0;
+}
+
+.row.right button {
+  width: 100%;
+  margin-top: 0;
+}
+
+.btn-choose-img {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border-radius: var(--border-box--);
+  border: var(--border-);
+  text-align: center;
+  cursor: pointer;
+}
+
+#createPost {
+  width: 100%;
+  height: 50px;
+  margin-top: 1rem;
+  border: var(--border-);
+  border-radius: var(--border-box--);
+  background-color: var(--primary);
+  cursor: pointer;
+}
+/* =========================================
+   7️⃣  FOOTER
+========================================= */
+.footer {
+  padding: 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================================
+   8️⃣  RESPONSIVE DESIGN
+========================================= */
+@media (max-width: 1200px) {
+  .layout {
+    padding: 20px 100px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .searchbar {
+    width: 50% !important;
+  }
+  /* .searchbar #searchInput {
+    width: 60% !important;
+  } */
+}
+
+@media (max-width: 1110px) {
+  .topbar .container {
+    padding: 12px 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .layout {
+    padding: 20px 50px;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .searchbar {
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar .container {
+    padding: 20px;
+  }
+
+  /* .container-highter {
+    display: none !important;
+  } */
+
+  .container-768 {
+    display: flex !important;
+    padding: 12px 20px; /* 👈 giảm padding hai bên */
+    gap: 8px;
+  }
+
+  .topbar .container .logo {
+    font-size: 16px;
+  }
+
+  .topbar .searchbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .topbar .searchbar #searchInput {
+    position: absolute;
+    top: -200%;
+    right: 0;
+    width: 100%;
+  }
+
+  .topbar .searchbar .img-search {
+    display: block;
+    width: 36px;
+    height: 36px;
+  }
+
+  .actions .btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .actions .btn span {
+    display: none;
+  }
+
+  .actions .btn i {
+    display: inline-block;
+  }
+
+  .actions #generalBtn {
+    display: inline-block;
+  }
+
+  .actions .avatar {
+    display: flex;
+  }
+
+  .layout {
+    padding: 20px 20px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .topbar .logo {
+    flex: 9;
+  }
+
+  .topbar .searchbar {
+    flex: 1;
+  }
+}

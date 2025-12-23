@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/manage_course.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+
+    <title>Quản lý khóa học</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div id="sidebar-placeholder"></div>
+    <div id="right-content">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="title">
+          <h3>Khóa học Video của tôi</h3>
+          <button class="new-course" id="new-course">
+            <i class="fa-solid fa-plus"></i>
+            <span>Thêm khóa học</span>
+          </button>
+        </div>
+        <!--NÚT CHỨC NĂNG BÊN TRÊN -->
+        <div class="actions">
+          <div class="top-action">
+            <div class="selectDate">
+              <div class="date-wrapper">
+                <label for="fromDate">Từ ngày</label>
+                <input type="date" id="fromDate" />
+              </div>
+              <div class="date-wrapper">
+                <label for="toDate">Đến ngày</label>
+                <input type="date" id="toDate" />
+              </div>
+            </div>
+            <button class="apply">Áp dụng</button>
+          </div>
+          <!-- THANH TÌM KIẾM VÀ THANH BỘ LỌC-->
+
+          <div class="search-select">
+            <input type="text" placeholder="Tìm kiếm..." class="search-bar" />
+            <div class="selects">
+              <select class="role_course">
+                <option value="all">Tất cả</option>
+                <option value="published">Đã hoàn thành</option>
+                <option value="draft">Chưa hoàn thành</option>
+                <option value="TOEIC">TOEIC</option>
+                <option value="IELTS">IELTS</option>
+                <option value="Combo">Combo</option>
+                <option value="BEGINNER">TIẾNG ANH CĂN BẢN</option>
+                <option value="COMBO-4">COMBO TOEIC 4 KỸ NĂNG</option>
+                <option value="COMBO-2">COMBO TOEIC 2 KỸ NĂNG</option>
+              </select>
+              <select class="arrange">
+                <option value="new">Mới nhất</option>
+                <option value="old">Cũ nhất</option>
+                <option value="AtoZ">A-Z</option>
+                <option value="ZtoA">Z-A</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!--CÁC KHÓA HỌC HIỂN THỊ BÊN DƯỚI-->
+        <div class="list-courses" id="course-list">
+          <div class="item-course" data-id="1">
+            <div class="item-course-panel">
+              <div class="image-course">
+                <img src="./img/course.png" alt="Khóa học cơ bản" />
+              </div>
+              <div class="course-info">
+                <div class="name-course">Khóa học mất gốc</div>
+                <div class="date-and-number">
+                  <div class="date-make">Ngày tạo: 11/11/2020</div>
+                  <div class="number-of-student">456 học viên</div>
+                </div>
+                <hr />
+                <div class="status-course">
+                  <div class="status">Đã hoàn thành</div>
+                  <button class="delete-btn">Xóa</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal Tạo Khóa Học -->
+    <div class="modal" id="create-course-modal">
+      <div class="modal-content">
+        <h3>Tạo khóa học mới</h3>
+        <form id="create-course-form">
+          <label>Tên khóa học</label>
+          <input type="text" id="course-name" required />
+
+          <label>Loại khóa học</label>
+          <select id="course-type">
+            <option value="TOEIC">TOEIC</option>
+            <option value="IELTS">IELTS</option>
+            <option value="Combo">Combo</option>
+            <option value="BEGINNER">TIẾNG ANH CĂN BẢN</option>
+            <option value="COMBO-4">COMBO TOEIC 4 KỸ NĂNG</option>
+            <option value="COMBO-2">COMBO TOEIC 2 KỸ NĂNG</option>
+          </select>
+
+          <label>Mô Tả</label>
+          <textarea type="text" id="course-detail"></textarea>
+          <label>Giá tiền</label>
+          <input type="number" id="course-price" required />
+
+          <label>Trạng thái</label>
+          <select id="course-status">
+            <option value="incomplete">Chưa hoàn thành</option>
+            <option value="completed">Đã hoàn thành</option>
+          </select>
+
+          <label>Thêm hình ảnh</label>
+          <input type="file" id="course-image" accept="image/*" />
+
+          <div class="modal-actions">
+            <button type="button" class="cancel" id="cancel-create">Hủy</button>
+            <button type="submit" class="save">Tạo khóa học</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../Assets/JS/auth.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/manage-course.js"></script>
+  </body>
+</html>

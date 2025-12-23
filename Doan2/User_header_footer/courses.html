@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/course.css" />
+    <title>Khóa học</title>
+  </head>
+  <body>
+    <div id="main-header"></div>
+    <div id="main-content">
+      <div class="content-course">
+        <div class="menu-slide-bar">
+          <div class="menu-category">
+            <div id="menu-icon">
+              <div class="img-menu">
+                <img src="./img/image_course/menuIcon.png" alt="" />
+              </div>
+              <span>Danh mục khóa học</span>
+            </div>
+            <div class="categorys">
+              <ul>
+                <li class="active" data-type="ALL">TẤT CẢ KHÓA HỌC</li>
+                <li data-type="TOEIC">IELTS</li>
+                <li data-type="IELST">TOEIC</li>
+                <li data-type="BEGINNER">TIẾNG ANH CĂN BẢN</li>
+                <li data-type="COMBO-4">COMBO TOEIC 4 KỸ NĂNG</li>
+                <li data-type="COMBO-2">COMBO TOEIC 2 KỸ NĂNG</li>
+                <li data-type="COMBO-4+2">
+                  COMBO LẤY GỐC TIẾNG<br />
+                  ANH & ÔN THI TOEIC CẤP TỐC
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--RIGHT-->
+        <div class="list-courses">
+          <div class="title-search">
+            <div class="title">Tất cả khóa học (36 khóa học)</div>
+            <div class="search">
+              <input type="text" placeholder="Nhập tên khóa học cần tìm" />
+              <button>Tìm kiếm</button>
+            </div>
+          </div>
+          <div class="list-course">
+            <div class="item-course" data-id="">
+              <div>
+                <div class="item-course-panel">
+                  <div>
+                    <div class="image-course">
+                      <img src="./img/image_course/image-course.png" alt="" />
+                    </div>
+                    <div class="course-info">
+                      <div class="name-course">Luyện giải đề TOEIC 2025</div>
+                      <div class="course-tag">
+                        <div class="course-tag-item">
+                          <i class="fa-solid fa-play"></i> <span>Video</span>
+                        </div>
+                        <div class="course-tag-item live">
+                          <span></span> <span>Livestream</span>
+                        </div>
+                      </div>
+                      <hr />
+                      <div class="course-price">
+                        <div class="price">850.000 VND</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-footer"></div>
+
+    <script src="./js/course.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+  </body>
+</html>

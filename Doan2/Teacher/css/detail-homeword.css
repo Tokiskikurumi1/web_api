@@ -1,0 +1,81 @@
+/* ============================================= PAGE HEADER ====================================== */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.page-header .title {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* ============================================= INFO HOMEWORK ====================================== */
+
+/* =================== DETAIL SECTION  ========================== */
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section .detail-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+}
+
+.stat-item {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--grey-border);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label,
+.stat-value {
+  font-size: 1.2rem;
+}
+
+.table-submissions {
+  background-color: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  overflow: scroll;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.submission-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.submission-table th {
+  background: var(--white);
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--grey);
+  border-bottom: 1px solid var(--grey-border);
+}
+.submission-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--white);
+}
+.submission-table tr:hover {
+  background-color: var(--grey-border);
+}

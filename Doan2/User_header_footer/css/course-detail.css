@@ -1,0 +1,303 @@
+p,
+h3 {
+  margin: 0;
+}
+
+/* Hiển thị theo cột cho course và curriculum */
+body {
+  background-color: white;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* Hiển thị theo hàng cho thông tin khóa học */
+.course {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  /* margin-top: 20px; */
+  margin: 20px 50px 20px;
+  /* flex-wrap: wrap; */
+}
+/* tiêu đề */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+/* Hình ảnh và đánh giá */
+.img-stats {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* min-width: 420px; */
+  justify-content: flex-start;
+}
+/* Đánh giá và học viên */
+.img {
+  max-height: 500px;
+  width: 100%;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #555;
+  gap: 20px;
+}
+.stats-rating {
+  background-color: var(--gray-light-);
+  /* padding: 30px; */
+  flex: 1;
+  text-align: center;
+  border-radius: 0.6rem;
+  margin-top: 20px;
+  font-size: large;
+}
+.stats-students {
+  /* padding: 30px; */
+  flex: 1;
+  text-align: center;
+  background-color: var(--gray-light-);
+  border-radius: 0.6rem;
+  margin-top: 20px;
+  font-size: large;
+}
+/* Giá */
+.info-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.info-price-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.info-price-details span {
+  font-size: 18px;
+  color: var(--black-);
+}
+.info-price-details .price {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--blue-);
+}
+/* Nút */
+.btn {
+  border-radius: 0.6rem;
+}
+/* Thông tin khóa học */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 420px;
+}
+/* Mô tả khóa học */
+.info-description h3 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.info-description p {
+  font-size: 18px;
+  color: var(--black-);
+  margin-bottom: 10px;
+}
+/* Lợi ích khóa học */
+.info-features {
+  padding-left: 20px;
+  column-count: 2;
+  column-gap: 16px;
+}
+.info-features li {
+  list-style: disc;
+  margin-bottom: 10px;
+
+  column-gap: 16px;
+}
+/* Thông tin giảng viên, trình độ, thời lượng */
+.info-course {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.info-instructor h3,
+.info-level h3,
+.info-duration h3 {
+  font-weight: bold;
+}
+
+/* Bài giảng */
+.info-curriculum h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+}
+.info-curriculum {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.info-curriculum-item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.info-curriculum-item {
+  width: 100%;
+  background-color: var(--gray-light-);
+  padding: 10px;
+  border-radius: 8px;
+}
+.info-curriculum-item .lesson {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--white-);
+  background-color: var(--blue-);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.info-curriculum-item .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--black-);
+}
+
+/* @media (max-width: 1024px) {
+  .course {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-stats,
+  .info {
+    min-width: 100%;
+  }
+
+  .info-course {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-features {
+    column-count: 1;
+  }
+
+  .info-curriculum-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .info-curriculum-item .lesson {
+    margin-bottom: 10px;
+  }
+  .info-curriculum-item .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .info-description h3,
+  .info-description p {
+    font-size: 16px;
+  }
+
+  .stats-rating,
+  .stats-students {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .info-price-details .price {
+    font-size: 24px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .img-stats {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+  }
+  .course {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .img {
+    height: 240px;
+    background-size: cover;
+  }
+
+  .info-price {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  h2 {
+    margin-left: 20px;
+  }
+  .course {
+    margin: 20px;
+  }
+}
+
+/* @media (max-width: 460px) {
+} */

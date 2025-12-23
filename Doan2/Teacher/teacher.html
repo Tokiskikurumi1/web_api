@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <link rel="stylesheet" href="./css/teacher.css" />
+
+    <title>Tổng quan</title>
+  </head>
+
+  <body>
+    <!--DÙNG ĐỂ KHI XUỐNG GIAO DIỆN ĐIỆN THOẠI THAO TÁC VỚI MENU-ICON-->
+    <div class="overlay" id="overlay"></div>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="title-comback">
+          <h2>
+            Chào mừng trở lại,
+            <span id="name-teacher" style="color: var(--blue-)"
+              >GV. Nguyễn Văn A!</span
+            >
+            👋
+          </h2>
+          <p style="color: var(--grey)">Hôm nay: Thứ Bảy, 08/11/2025</p>
+        </div>
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>
+              Tổng khóa học
+              <i class="fas fa-chalkboard-teacher" style="color: #2563eb"></i>
+            </h3>
+            <p>6</p>
+            <small class="text-green">↑ 2 so với tuần trước</small>
+          </div>
+          <div class="stat-card">
+            <h3>
+              Tổng học viên
+              <i class="fas fa-user-graduate" style="color: #10b981"></i>
+            </h3>
+            <p>248</p>
+            <small class="text-green">↑ 15%</small>
+          </div>
+          <div class="stat-card">
+            <h3>
+              Tổng số bài tập đã hoàn thành
+              <i class="fas fa-clipboard-check" style="color: #f97316"></i>
+            </h3>
+            <p>14</p>
+            <small class="text-red">3 quá hạn</small>
+          </div>
+          <div class="stat-card">
+            <h3>
+              Thông báo mới <i class="fas fa-bell" style="color: #8b5cf6"></i>
+            </h3>
+            <p>3</p>
+            <small><a href="#" style="color: #2563eb">Xem tất cả →</a></small>
+          </div>
+        </div>
+        <!-- Courses -->
+        <section>
+          <div class="process-course">
+            <h3>Khóa học phổ biến</h3>
+            <a href="#">Xem tất cả →</a>
+          </div>
+          <div class="course-card">
+            <div class="process">
+              <div>
+                <h4>Tiếng anh cơ bản</h4>
+                <p style="font-size: 0.875rem; color: #6b7280">
+                  68 học viên • Kết thúc: 20/12/2025
+                </p>
+              </div>
+              <span
+                class="bg-yellow-light"
+                style="
+                  font-size: 0.75rem;
+                  padding: 0.25rem 0.5rem;
+                  border-radius: 0.375rem;
+                "
+                >Đang hot</span
+              >
+            </div>
+
+            <div
+              class="course-actions"
+              style="display: flex; gap: 0.5rem; margin-top: 0.75rem"
+            >
+              <button
+                style="
+                  padding: 0.5rem 1rem;
+                  border: 1px solid #d1d5db;
+                  border-radius: 8px;
+                  background: white;
+                  font-size: 0.875rem;
+                "
+              >
+                Chi tiết
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--TỈ LỆ HOÀN THÀNH BÀI TẬP-->
+        <section>
+          <div class="finish-work">
+            <div class="stat-card">
+              <h3>
+                Tỉ lệ hoàn thành bài tập
+                <i class="fas fa-clipboard-check" style="color: #f97316"></i>
+              </h3>
+              <p class="rate">6</p>
+              <small class="text-green">↑ 2 so với tuần trước</small>
+            </div>
+            <div class="stat-card">
+              <h3>
+                Mức độ tham gia của sinh viên
+                <i class="fas fa-user-graduate" style="color: #10b981"></i>
+              </h3>
+              <p class="lever">6</p>
+              <small class="text-green">↑ 2 so với tuần trước</small>
+            </div>
+          </div>
+        </section>
+        <!--SINH VIÊN MỚI ĐĂNG KÝ KHÓA HỌC GẦN ĐÂY-->
+        <section>
+          <div class="recent-student">
+            <h3>Học viên mới đăng ký gần đây</h3>
+          </div>
+          <div class="table-student">
+            <table>
+              <tr>
+                <th>STT</th>
+                <th>Mã học viên</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Số điện thoại</th>
+                <th>Khóa học đăng ký</th>
+                <th>Giá tiền</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>HV01</td>
+                <td>Vũ Thành Minh</td>
+                <td>03-12-2005</td>
+                <td>0123456789</td>
+                <td>Tiếng anh cơ bản</td>
+                <td>1.000.000VND</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>HV01</td>
+                <td>Vũ Thành Minh</td>
+                <td>03-12-2005</td>
+                <td>0123456789</td>
+                <td>Tiếng anh cơ bản</td>
+                <td>1.000.000VND</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../Doan2/Assets/JS/auth.js"></script>
+    <script src="./js/teacher.js"></script>
+    <script src="./js/header.js"></script>
+  </body>
+</html>

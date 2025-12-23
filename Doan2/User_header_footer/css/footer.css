@@ -1,0 +1,85 @@
+#main-footer{
+  width: 100%;
+}
+.list-icon-fixed {
+  position: fixed;
+  width: 162px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: center;
+  row-gap: 16px;
+  z-index: 100;
+  bottom: 10px;
+  right: 10px;
+}
+
+.list-icon-fixed .icon-fixed {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  gap: 6px;
+}
+
+.icon-fixed span {
+  font-size: 10px;
+}
+
+#main-footer {
+  width: 100%;
+}
+
+#footer {
+  width: 100%;
+  background-color: #eeeae1;
+  padding: 30px 80px;
+}
+
+#footer > h1 {
+  text-align: center;
+}
+
+.footer-contact {
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-contact h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.content-footer .social-icon i {
+  font-size: 24px;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 0.2rem;
+}
+
+.content-footer .social-icon i:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.content-footer a {
+  color: black;
+}
+
+.social-icon span {
+  color: black;
+}
+
+.social-icon.social-icon-last i {
+  background-color: transparent;
+}

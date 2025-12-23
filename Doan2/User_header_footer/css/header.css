@@ -1,0 +1,218 @@
+#header {
+  width: 100%;
+  /* height: 5rem; */
+  display: flex;
+  justify-content: center; /* căn giữa ngang */
+  align-items: center;
+  background-color: var(--white--);
+  position: relative;
+  padding: 0;
+  border: 1px solid #ddd;
+}
+
+/*Nav bar title*/
+.nav-bar-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* padding-top: 1rem;
+  padding-bottom: 1rem; */
+}
+
+.nav-bar-title .logo {
+  display: flex;
+  align-items: center;
+  /* padding-left: 16px;
+  width: 40px; */
+}
+/* .nav-bar-title .logo img {
+  width: 40px;
+} */
+
+.logo h1 {
+  background-image: url("https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-repeat: repeat;
+  -webkit-text-fill-color: transparent;
+  color: rgba(225, 225, 225, 0.01);
+  -webkit-background-clip: text;
+  animation: animate 15s ease-in-out infinite;
+  background-clip: text;
+  font-weight: 600;
+  font-size: 19px;
+  text-align: center;
+  text-transform: uppercase;
+}
+@keyframes animate {
+  0%,
+  100% {
+    background-position: left top;
+  }
+  25% {
+    background-position: right bottom;
+  }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }
+}
+
+.nav-bar-title .ul-bar-title {
+  display: flex;
+}
+
+.nav-bar-title .ul-bar-title li {
+  list-style: none;
+  font-weight: 600;
+}
+
+.nav-bar-title .ul-bar-title a {
+  padding: 8px 17px;
+  font-size: 1rem;
+  color: var(--black--);
+}
+
+.nav-bar-title .ul-bar-title li:hover {
+  transform: scale(1.2);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-bottom: 2px solid var(--blue-);
+  font-size: medium;
+}
+
+#menu-icon,
+#close-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--black--);
+  display: none;
+}
+
+.ul-bar-info {
+  display: flex;
+  align-items: center; /* căn giữa theo chiều dọc */
+  padding: 0 0.5rem;
+  margin: 0; /* bỏ margin mặc định */
+}
+
+.ul-bar-info li {
+  list-style: none;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  /* padding: 10px 40px; */
+}
+
+.ul-bar-info .login {
+  background-color: #ec6e23;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem; /* padding gọn gàng */
+  border-radius: 2rem;
+}
+
+.ul-bar-info .login li a {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+.ul-bar-info .cart a {
+  font-size: 1.3rem; /* cho icon giỏ hàng to bằng chữ login */
+  color: var(--color-header-text-);
+}
+
+/*Menu icon active*/
+
+/*Menu icon active*/
+.nav-bar-menu-icon-active {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-100%); /* Ban đầu ẩn hoàn toàn bên trái */
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt mà */
+  z-index: 1000; /* Đảm bảo menu hiển thị trên các phần tử khác */
+  display: none; /* Ẩn menu ban đầu */
+}
+
+.nav-bar-menu-icon-active.active {
+  transform: translateX(0); /* Trượt vào khi có class active */
+}
+
+.ul-bar-menu-icon-active {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  height: 100%; /* Đảm bảo danh sách lấp đầy chiều cao */
+}
+
+.ul-bar-menu-icon-active li {
+  width: 100%;
+  list-style: none;
+  padding: 10px 0px 10px 20px;
+  background: linear-gradient(to left, #ffe5d4 0%, #fbe3f0 100%) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s ease;
+}
+
+.ul-bar-menu-icon-active a {
+  font-size: var(--a-font-size-);
+}
+
+.ul-bar-menu-icon-active li:hover {
+  cursor: pointer;
+  background-size: 100% 100%;
+}
+
+@media (max-width: 1058px) {
+  /* #header {
+    padding: 0px;
+  } */
+  .nav-bar-title .logo h1 {
+    font-size: 19px !important;
+  }
+}
+
+@media (max-width: 990px) {
+  /* header {
+    padding: 16px 4%;
+  } */
+}
+
+@media (max-width: 928px) {
+  #menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-bar-menu-icon-active {
+    display: block;
+  }
+  .cart {
+    display: none !important;
+  }
+  .nav-bar-title {
+    justify-content: space-between;
+  }
+  .nav-bar-title .ul-bar-title {
+    display: none;
+  }
+  header#header {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 395px) {
+  .nav-bar-title .logo h1 {
+    font-size: 16px !important;
+  }
+  .login span {
+    font-size: 16px;
+  }
+}

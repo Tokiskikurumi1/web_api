@@ -1,0 +1,296 @@
+/* ========================================== PAGE HEADER ========================================= */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--blue-);
+  color: var(--white);
+}
+
+/* ========================================== THỐNG KÊ KHÓA HỌC ========================================== */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem;
+  color: #1f2937;
+}
+
+/* =================== STATS GRID ======= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background-color: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--grey);
+}
+/* ================================== CHART COLUMN CONTAINER ============================= */
+.chart-column-container {
+  background-color: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.chart-column {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+  overflow-x: auto;
+}
+
+.chart-column .number-and-columns {
+  width: 100%;
+  max-width: 1200px;
+  height: 446px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.number-and-columns .number-percen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.box-column {
+  min-width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-self: flex-start;
+  gap: 30px;
+  border-left: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+}
+
+.chart-serie {
+  position: relative;
+  width: 100px;
+  height: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--color);
+  transform-origin: bottom center;
+  animation: rise 1s linear forwards;
+  flex-shrink: 0; /*không cho co cột*/
+}
+
+.chart-serie .column-title {
+  text-align: center;
+  position: relative;
+  color: var(--red);
+}
+
+.chart-serie:first-child {
+  margin-left: 1rem;
+}
+
+.name-course {
+  display: flex;
+  margin-left: 1rem;
+  padding-left: calc(2rem + 32px);
+  gap: 30px;
+}
+
+.name-course span {
+  width: 100px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+@keyframes rise {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: var(--i);
+  }
+}
+
+/* ================================== CHART CIRCLE CONTAINER ============================= */
+.chart-circle-container {
+  background-color: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===================== CIRCLE BOX ====== */
+
+.info-circle-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.info-circle-box .circle-box {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: var(--green);
+  background: repeating-conic-gradient(
+    var(--red) 0deg calc(3.6deg * 10),
+    var(--orange) calc(3.6deg * 10) calc(3.6deg * 40),
+    var(--yellow) calc(3.6deg * 40) calc(3.6deg * 70),
+    var(--green) calc(3.6deg * 70) calc(3.6deg * 100)
+  );
+}
+
+/* ===================== PROGRESS BOX ====== */
+.progress-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.progress-box .phan-tram {
+  display: flex;
+}
+
+.progress-box .phan-tram div {
+  width: 100px;
+  height: 20px;
+  border: 3px solid var(--grey-border);
+}
+/* ========================================== TABLE ========================================== */
+.table-compare-container {
+  background-color: var(--white);
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  overflow: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.report-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
+.report-table th {
+  background-color: var(--white);
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--grey);
+  border-bottom: 1px solid var(--grey-border);
+}
+.report-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--white);
+}
+.report-table tr:hover {
+  background: var(--grey-border);
+}
+
+/* ========================================== ALERT CARD ========================================== */
+.alert-card {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.alert-icon {
+  color: var(--orange);
+  font-size: 1.25rem;
+}
+
+/* ========================================== RESPONSIVE ========================================== */
+
+@media (max-width: 830px) {
+  .info-circle-box .circle-box {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  main {
+    padding: 1rem;
+  }
+  .table-compare-container {
+    padding: 1rem;
+  }
+  .report-table th,
+  .report-table td {
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Assets/CSS/Base/reset.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/base.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/card.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/btn.css">
+    <link rel="stylesheet" href="./css/shop.css">
+</head>
+<body>
+    <div class="shop">
+        <div class="product-header">
+            <h2>Tìm được 1 sản phẩm:</h2>
+            <button id="toggleFilter">Hiện bộ lọc</button>
+        </div>
+        <div class="product">
+            <div class="product-card">
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img"></div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng - Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-overlay" id="filterOverlay">
+            <div class="filter-content">
+                <button id="closeFilter">Quay lại</button>
+                <h2>Bộ lọc</h2>
+                <h3>Loại sản phẩm</h3>
+                <label><input type="radio" name="all" value="type-product"> Tất cả</label>
+                <label><input type="radio" name="all" value="type-product"> Sách</label>
+                <label><input type="radio" name="all" value="type-product"> Khóa học</label>
+
+                <h3>Trình độ</h3>
+                <label><input type="radio" name="level" value="level-easy"> Dễ</label>
+                <label><input type="radio" name="level" value="level-medium"> Trung bình</label>
+                <label><input type="radio" name="level" value="level-hard"> Khó</label>
+
+                <h3>Đánh giá</h3>
+                <label><input type="radio" name="rating" value="rating-1"> 4.5 sao</label>
+                <label><input type="radio" name="rating" value="rating-2"> 3 sao</label>
+                <label><input type="radio" name="rating" value="rating-3"> 2 sao</label>
+                <label><input type="radio" name="rating" value="rating-4"> 1 sao</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="../User_header_footer/js/shop.js"></script>
+</body>
+</html>

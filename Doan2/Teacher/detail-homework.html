@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <link rel="stylesheet" href="./css/detail-homeword.css" />
+    <title>Chi tiết bài tập</title>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div id="right-content">
+      <!-- Header -->
+      <div id="header-placeholder"></div>
+
+      <!-- Main Content -->
+      <main>
+        <div class="page-header">
+          <h3 class="title">Tên bài tập:</h3>
+          <h3 class="title" id="nameAss">Thì hiện tại đơn</h3>
+        </div>
+
+        <hr />
+
+        <!-- Chi tiết bài tập -->
+        <div id="detailHomework">
+          <!-- <div class="content-header">
+            <h2 class="name-HomeWork">Tên bài tập: Thì hiện tại đơn</h2>
+          </div> -->
+          <div class="info-HomeWork">
+            <!-- Thông tin chung -->
+            <section class="detail-section">
+              <h3 class="detail-title">Thông tin bài tập</h3>
+              <div class="detail-info">
+                <div class="info-item">
+                  <i class="fas fa-book"></i> <strong>Khóa học:</strong>
+                  <span id="nameCourse">Tiếng Anh Cơ Bản</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-calendar"></i>
+                  <strong>Hạn nộp:</strong>
+                  <span id="deadLine">08/11/2025 23:59</span>
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-clock"></i>
+                  <strong>Thời gian làm:</strong>
+                  <span id="timeWork">60 </span>phút
+                </div>
+                <div class="info-item">
+                  <i class="fas fa-file-alt"></i> <strong>Loại:</strong>
+                  <span id="type">Bài tập viết</span>
+                </div>
+              </div>
+              <p class="description">
+                <strong>Mô tả:</strong>
+                <span id="description"
+                  >Học viên cần hoàn thành bài tập về thì hiện tại đơn, bao gồm
+                  điền vào chỗ trống, viết câu và dịch câu. Bài tập được thiết
+                  kế để củng cố ngữ pháp cơ bản.</span
+                >
+              </p>
+            </section>
+
+            <!-- Thống kê nộp bài -->
+            <section class="detail-section">
+              <h3 class="detail-title">Thống kê nộp bài</h3>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value" style="color: var(--green)">42</div>
+                  <div class="stat-label">Đã nộp</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" style="color: var(--orange)">8</div>
+                  <div class="stat-label">Chưa nộp</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" style="color: var(--blue-)">5</div>
+                  <div class="stat-label">Đạt</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" style="color: var(--green)">37</div>
+                  <div class="stat-label">Không đạt</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Danh sách học viên nộp -->
+            <section class="detail-section">
+              <h3 class="detail-title">Danh sách nộp bài</h3>
+              <div class="table-submissions">
+                <table class="submission-table">
+                  <thead>
+                    <tr>
+                      <th>STT</th>
+                      <th>Học viên</th>
+                      <th>Thời gian nộp</th>
+                      <th>Điểm</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td><strong>Nguyễn Văn B</strong></td>
+                      <td>07/11/2025 21:30</td>
+                      <td><strong style="color: var(--green)">9.5</strong></td>
+                      <td>Đạt</td>
+                    </tr>
+                    <tr>
+                      <td>02</td>
+                      <td><strong>Trần Thị C</strong></td>
+                      <td>07/11/2025 22:15</td>
+                      <td>
+                        <span style="color: var(--orange)">4.5</span>
+                      </td>
+                      <td>Không đạt</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- JS -->
+    <script src="./js/header.js"></script>
+    <script src="./js/detail-homework.js"></script>
+  </body>
+</html>

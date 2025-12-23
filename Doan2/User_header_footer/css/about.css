@@ -1,0 +1,336 @@
+:root {
+  --h1-font-size: 3rem;
+  --h2-font-size: 1.3rem;
+  --p-font-size-: 18px;
+  --padding-: 50px 100px;
+  --border-radius-: 2rem;
+  --line-height-: 25px;
+}
+
+/* h2 {
+  margin: 0;
+} */
+
+#container {
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-background-);
+}
+
+#container h1 {
+  margin: 0px;
+  font-size: var(--h1-font-size);
+}
+
+.tong-quan {
+  width: 100%;
+}
+
+.tong-quan .h1-tong-quan {
+  padding: 3rem;
+  text-align: center;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
+.noi-dung-tong-quan {
+  text-align: justify;
+  margin-top: 30px;
+  padding: 0px 230px;
+}
+
+.noi-dung-tong-quan p {
+  font-size: var(--p-font-size-);
+  line-height: var(--line-height-);
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-around;
+  /* padding: 300px; */
+}
+
+.item-card .card {
+  width: 300px;
+  min-height: 350px;
+  background-color: var(--color-box-);
+  border: var(--border-);
+  border-radius: var(--border-radius-);
+  padding: 0px 20px;
+  text-align: center;
+}
+
+.item-card .card span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 20px 0px;
+  display: block;
+}
+
+.item-card .card .image-card {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.item-card .card .image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*SẢN PHẨM CỦA CHÚNG TÔI*/
+
+.my-products {
+  width: 100%;
+  padding: var(--padding-);
+}
+
+.my-products .my-products-title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 2rem;
+}
+
+.my-products .row-product {
+  width: 100%;
+  padding: 30px 0px;
+}
+
+.my-products .row-product .product-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.my-products .row-product .product-box .box-box-product {
+  width: 100%;
+  min-height: 10rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.box-box-product .img-product img {
+  width: 148px;
+  min-height: 148px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.box-box-product .content-box-product {
+  text-align: left;
+}
+
+.box-box-product .content-box-product h2 {
+  font-size: var(--h2-font-size);
+  margin: 0;
+}
+
+.box-box-product .content-box-product,
+p,
+a {
+  font-size: 16px;
+}
+
+.box-box-product .content-box-product a {
+  font-size: 20px;
+}
+
+/*CAM KET*/
+.cam-ket {
+  width: 100%;
+  padding: 50px 130px;
+}
+
+.cam-ket .cam-ket-title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 2rem;
+}
+
+.cam-ket .row {
+  width: 100%;
+  padding: 30px 0px;
+}
+
+.cam-ket .row .commit-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.cam-ket .row .commit-box .left-box-commit,
+.right-box-commit {
+  width: 100%;
+  min-height: 240px;
+  text-align: center;
+}
+
+.left-box-commit {
+  /* border-radius: var(--border-radius-);
+  border: 1px solid grey; */
+  /* display: flex;
+  align-items: center; */
+  width: 100%;
+}
+
+.left-box-commit .img-commit {
+  width: 100%;
+  text-align: 0px auto;
+}
+
+.left-box-commit .img-commit img {
+  width: 80%;
+  object-fit: cover;
+}
+
+.right-box-commit {
+  text-align: left;
+}
+
+.right-box-commit .img-right-commit {
+  width: 80%;
+}
+
+.right-box-commit .img-right-commit img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.right-box-commit p {
+  font-size: var(--p-font-size-);
+  line-height: var(--line-height-);
+}
+
+@media (max-width: 1170px) {
+  .item-card {
+    justify-content: space-between;
+  }
+
+  .cam-ket .row {
+    padding-bottom: 0px !important;
+  }
+  /* .cam-ket {
+    padding: 30px;
+  } */
+  /* .left-box-commit .img-commit {
+    width: 400px;
+    height: 300px;
+    text-align: top;
+  } */
+}
+
+@media (max-width: 1030px) {
+  .content {
+    padding: 50px !important;
+  }
+
+  .noi-dung-tong-quan {
+    padding: 0px 200px;
+  }
+
+  .product-box {
+    flex-direction: column;
+  }
+  .box-box-product {
+    width: 100%;
+  }
+}
+
+@media (max-width: 961px) {
+  .cam-ket {
+    padding: 50px 70px;
+  }
+  .commit-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-box-commit,
+  .right-box-commit {
+    text-align: center;
+    width: auto;
+  }
+  .left-box-commit .img-commit {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  .left-box-commit .img-commit img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .right-box-commit .img-right-commit {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 920px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  .noi-dung-tong-quan {
+    padding: 0px 100px;
+  }
+}
+
+@media (max-width: 820px) {
+  .item-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .cam-ket {
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .my-products {
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 540px) {
+  h1 {
+    font-size: 1.2rem !important;
+  }
+  #container h1 {
+    padding: 30px !important;
+  }
+  .noi-dung-tong-quan {
+    padding: 0px 30px;
+  }
+  .product-box {
+    text-align: center;
+  }
+  .box-box-product {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+  .box-box-product .img-product {
+    margin: 0px auto;
+  }
+  .row-product {
+    text-align: center;
+  }
+}
+
+@media (max-width: 460px) {
+  .left-box-commit .img-commit {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .right-box-commit {
+    width: 100%;
+  }
+  .left-box-commit .img-commit img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .right-box-commit .img-right-commit {
+    margin: 0 auto;
+    width: 100%;
+  }
+}

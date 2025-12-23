@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/CSS/Base/reset.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/base.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/btn.css">
+    <link rel="stylesheet" href="../Assets/CSS/Base/card.css">
+    <link rel="stylesheet" href="./css/learn.css">
+    <link rel="stylesheet" href="./css/shop.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="welcome" id="cardgradient">
+        <h2>Chào mừng quay trở lại,...</h2>
+        <span>Tiến trình của bạn đang được theo dõi. Hãy tiếp tục phát huy!</span>
+        <div class="welcome-progress">
+            <div class="item">
+                <span class="value" id="lessons">12</span>
+                <span class="label">Bài hoàn thành</span>
+            </div>
+            <div class="item">
+                <span class="value" id="score">85%</span>
+                <span class="label">Điểm trung bình</span>
+            </div>
+            <div class="item">
+                <span class="value" id="streak">7</span>
+                <span class="label">Chuỗi hoạt động</span>
+            </div>
+        </div>
+    </div>
+    <h3>Bài tập hàng ngày</h3>
+    <div class="practice-daily">
+        <div class="practice-progress">
+            <div class="practice-progress-title">
+                <span>Tiến độ</span>
+                <span>1/4 Bài tập</span>
+
+            </div>
+            <progress value="25" max="100"></progress>
+            <p>Hoàn thành thử thách để xây dựng chuỗi học tập của bạn!</p>
+        </div>
+    </div>
+    <div class="practice-item">
+        <div class="practice-item-content" id="cardbasic">
+            <img src="./img/img/book-open-svgrepo-com.svg" alt="">
+            <h5>Học từ mới</h5>
+            <span>Nội dung bài học về từ vựng mới.</span>
+            <button id="btnwhite">Thực hành ngay</button>
+        </div>
+        <div class="practice-item-content" id="cardbasic">
+            <img src="./img/img/document-text-svgrepo-com.svg" alt="">
+            <h5>Ngữ pháp</h5>
+            <span>Kiểm tra kiến ​​thức ngữ pháp của bạn bằng các câu hỏi nhanh</span>
+            <button id="btnwhite">Thực hành ngay</button>
+        </div>
+        <div class="practice-item-content" id="cardbasic">
+            <img src="./img/img/document-text-svgrepo-com.svg" alt="">
+            <h5>Luyện nghe</h5>
+            <span></span>
+            <button id="btnwhite">Thực hành ngay</button>
+        </div>
+        <div class="practice-item-content" id="cardbasic">
+            <img src="./img/img/micro-svgrepo-com.svg" alt="">
+            <h5>Luyện phát âm</h5>
+            <span>Lặp lại các cụm từ và nhận phản hồi về cách phát âm</span>
+            <button id="btnwhite">Thực hành ngay</button>
+        </div>
+    </div>
+    <h3>Bài học hiện tại</h3>
+    <div class="lesson" id="cardbasic">
+        <div class="lesson-current">
+            <div class="lesson-current-video">
+                <div class="video">
+                    <iframe src="https://www.youtube.com/embed/?start=30&autoplay=1" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="lesson-current-info">
+                        <div class="lesson-current-info-nav">
+                            <button class="info-nav-btn active" data-target="overview">Tổng quan</button>
+                            <button class="info-nav-btn" data-target="vocabulary">Từ vựng</button>
+                            <button class="info-nav-btn" data-target="exercise">Bài tập</button>
+                        </div>
+
+
+                        <div class="lesson-current-title tab-content active" id="overview">
+
+                        </div>
+
+
+                        <div class="lesson-current-vocabulary tab-content" id="vocabulary">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Từ vựng</th>
+                                        <th>Loại từ</th>
+                                        <th>Nghĩa</th>
+                                        <th>Ví dụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vocab-body">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="lesson-current-exercise tab-content" id="exercise">
+                            <div id="exercise-list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-list">
+                    <h3>Danh sách bài học</h3>
+                    <div class="lesson-item">
+                        <div class="lesson-item-name">
+                            <div class="lesson-item-name-number">1</div>
+                            <div class="lesson-item-name-title">Giới thiệu về khóa học</div>
+                        </div>
+                        <div class="lesson-item-duration">5:30</div>
+                    </div>
+                    <div class="lesson-current-btn">
+                        <button class="btn-next" id="btnwhite">Bài học tiếp theo</button>
+                        <button class="btn-back" id="btnwhite">Bài học trước</button>
+                        <button class="btn-confirm" id="btnconfirm">Hoàn thành</button>
+                    </div>
+                </div>
+            </div>
+            <h3>Sản phẩm nổi bật</h3>
+            <div class="product-card">
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="product-card-item" id="cardhover">
+                    <div class="product-card-item-img">
+                    </div>
+                    <h3>Tên sản phẩm</h3>
+                    <span class="product-card-item-rating">Tên tác giả</span>
+                    <span class="product-card-item-duration">Thời lượng- Số trang</span>
+                    <span class="product-card-item-rating">Sao</span>
+                    <div class="product-card-item-price">
+                        <span class="price">250.000 VND</span>
+                        <button id="btnblue">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="./js/learn.js"></script>
+
+</html>

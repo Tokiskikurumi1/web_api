@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/community.css" />
+    <title>Cộng đồng</title>
+  </head>
+  <body>
+    <!-- <<<<<<< HEAD
+    <div id="main-header"></div> -->
+    <!-- ======= -->
+    <!-- HEADER -->
+    <div id="main-header"></div>
+
+    <!-- MAIN CONTENT -->
+    <!-- >>>>>>> 9f91f7466261ff0ea4030772f3f4c15b41bc94ba -->
+    <main class="main-content">
+      <!-- <h1>Diễn đàn Học Tiếng Anh</h1>
+      <img
+        src="./Assets/Images/image_home/096dabbf-65c6-4096-bc72-ddc405f6b795.jpg"
+        alt="Logo"
+      /> -->
+      <div class="topbar">
+        <!-- DESKTOP VIEW -->
+        <div class="container">
+          <div class="logo-searchIcon">
+            <div class="logo">Diễn đàn Học Tiếng Anh</div>
+            <div class="searchbar">
+              <input
+                id="searchInput"
+                placeholder="Tìm chủ đề, từ vựng, ngữ pháp..."
+              />
+              <div class="img-search">
+                <img src="./img/img_community/search.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="newPostBtn" class="btn">
+              <span>Đăng bài</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <button id="generalBtn" class="btn">
+              <i class="fa-solid fa-layer-group"></i>
+            </button>
+            <div class="avatar">M</div>
+          </div>
+        </div>
+      </div>
+      <!-- LAYOUT CHÍNH -->
+      <div class="layout">
+        <section class="sidebar">
+          <ul id="categories">
+            <li data-cat="Tổng hợp" class="cat active">Bài viết tổng hợp</li>
+            <li data-cat="Trang cá nhân" class="cat">Trang cá nhân</li>
+          </ul>
+        </section>
+
+        <!-- BÀI ĐĂNG TỔNG HỢP -->
+        <section class="contents">
+          <div class="panel">
+            <h2 id="panelTitle">Bài viết mới nhất</h2>
+            <!--TRANG CÁ NHÂN + BÀI VIẾT TỔNG HỢP-->
+            <div id="profileSection">
+              <div class="c-avatar">B</div>
+              <h3 style="margin-top: 10px">Bạn</h3>
+              <p style="color: gray">Bài viết của tôi</p>
+            </div>
+
+            <div id="postList" class="post-list"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- XEM CHI TIẾT BÀI VIẾT  -->
+      <div id="postModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <button class="modal-close" id="closeModal">✕</button>
+
+          <div class="content-scroll">
+            <div class="meta" id="modalMeta">
+              <div class="avt-name-title">
+                <div class="c-avatar">M</div>
+                <div class="meta">Bởi tao • 2h trước</div>
+              </div>
+            </div>
+            <div id="modalContent" class="post-content">
+              Nội dung bài viết...
+            </div>
+            <h3>Bình luận</h3>
+            <div id="comments" class="comments"></div>
+          </div>
+
+          <div class="comment-form">
+            <input id="commentInput" placeholder="Viết bình luận..." />
+            <div id="sendComment" class="btn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ĐĂNG BÀI VIẾT  -->
+      <!--VỀ SỬA LẠI CÁI NÀY, LỖI KHI ĐĂNG BÀI HIỆN TÊN KHÔNG TRÙNG VỚI MÃ GIẢ-->
+      <div id="newPostModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="content-scroll">
+            <button class="modal-close" id="closeNewPost">✕</button>
+            <h2>Tạo bài viết</h2>
+            <div class="avt-name-title avt_create">
+              <div class="c-avatar">M</div>
+              <div class="meta">Bạn</div>
+            </div>
+            <textarea id="postBody" placeholder="Nội dung bài viết"></textarea>
+            <img id="imagePreview" />
+          </div>
+          <div class="btn-choose-img">
+            Thêm ảnh vào bài viết của bạn🖼️
+            <input type="file" id="postImage" accept="image/*" hidden />
+          </div>
+          <div class="row right">
+            <button id="createPost" class="btn primary">Đăng bài</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="main-footer"></div>
+
+    <script src="./js/community.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+  </body>
+</html>

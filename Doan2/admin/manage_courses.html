@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Components/base.css" />
+    <link rel="stylesheet" href="./Components/header_siderbar.css" />
+    <link rel="stylesheet" href="./css/manage-course.css" />
+    <title>Quản lý khóa học</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="content-manage-course">
+          <div class="content-header">
+            <h2>📚 Quản lý khóa học</h2>
+            <div class="actions-header">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Tìm kiếm tên khóa học"
+              /><select id="roleFilter">
+                <option value="all">Tất cả loại</option>
+                <option value="TOEIC">TOEIC</option>
+                <option value="IELTS">IELTS</option>
+                <option value="Combo">Combo</option>
+                <option value="BEGINNER">BEGINNER</option>
+                <option value="COMBO-4">COMBO-4</option>
+                <option value="COMBO-2">COMBO-2</option>
+              </select>
+            </div>
+          </div>
+          <div class="courseTable">
+            <table class="course-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên khóa học</th>
+                  <th>Mô tả</th>
+                  <th>Danh mục</th>
+                  <th>Giảng viên</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="courseTableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- MODAL SỬA KHÓA HỌC -->
+          <div id="editCourseModal" class="modal">
+            <div class="modal-content">
+              <h3>Sửa thông tin khóa học</h3>
+              <div class="content-frame">
+                <div class="form-group">
+                  <label class="form-label">Tên khóa học: </label>
+                  <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="Nhập tên khóa học..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Mô tả:</label>
+                  <input
+                    type="text"
+                    id="descInput"
+                    placeholder="Nhập mô tả..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Danh mục:</label>
+                  <select id="roleInput">
+                    <option value="TOEIC">TOEIC</option>
+                    <option value="IELTS">IELTS</option>
+                    <option value="Combo">Combo</option>
+                    <option value="BEGINNER">BEGINNER</option>
+                    <option value="COMBO-4">COMBO-4</option>
+                    <option value="COMBO-2">COMBO-2</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Giảng viên:</label>
+                  <input
+                    type="text"
+                    id="teacherInput"
+                    placeholder="Nhập giảng viên..."
+                  />
+                </div>
+
+                <div class="modal-buttons">
+                  <button id="saveCourseBtn" class="saveCourseBtn">Lưu</button>
+                  <button id="closeModalBtn" class="closeModalBtn">Hủy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/course.js"></script>
+    <script src="./js/header_siderbar.js"></script>
+  </body>
+</html>

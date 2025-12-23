@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/create_homework.css" />
+    <link rel="stylesheet" href="./components/header_sidebar.css" />
+    <title>Tạo bài tập</title>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div id="right-content">
+      <!-- Header -->
+      <div id="header-placeholder"></div>
+
+      <!-- Main Content -->
+      <main>
+        <div class="title">
+          <h3>Tạo bài tập</h3>
+        </div>
+
+        <!-- Danh sách bài tập (demo) -->
+
+        <div class="box-create-homework">
+          <form class="quizForm">
+            <!-- Thông tin chung -->
+            <div class="form-group">
+              <label class="form-label">Tên bài tập *</label>
+              <!-- Tên bài tập -->
+              <input
+                id="homework-title"
+                type="text"
+                class="form-input"
+                placeholder="VD: Kiểm tra thì hiện tại đơn"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Khóa học *</label>
+              <input type="text" id="courseName" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Dạng bài *</div>
+              <select id="type-select" class="form-select">
+                <option value="Quizz">Quizz</option>
+                <option value="Reading">Reading</option>
+                <option value="Rewrite">Viết lại câu</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Ngày tạo *</label>
+              <input
+                id="deadline-input"
+                type="date"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Thời gian làm bài* </label>
+              <input type="text" id="duration-select" class="form-select" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mô tả (tùy chọn)</label>
+              <textarea
+                class="form-textarea"
+                placeholder="Hướng dẫn làm bài, lưu ý..."
+              ></textarea>
+            </div>
+
+            <hr
+              style="
+                margin: 1.5rem 0;
+                border: none;
+                border-top: 1px solid var(--grey-border);
+              "
+            />
+
+            <!-- Danh sách câu hỏi -->
+            <div id="questions-container"></div>
+
+            <!-- Nút thêm câu hỏi -->
+            <button
+              type="button"
+              class="btn-add-question"
+              onclick="openQuestionModalCreate()"
+            >
+              <i class="fas fa-plus"></i> Thêm câu hỏi
+            </button>
+
+            <!-- Nút lưu -->
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-outline"
+                onclick="closeModal()"
+              >
+                Hủy
+              </button>
+              <select class="homework-done-yet" id="status-select">
+                <option value="incomplete">Bản nháp</option>
+                <option value="completed">Hoàn thành</option>
+              </select>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Tạo bài tập
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+    <!-- MODAL ADD QUESTION -->
+    <div class="modal hidden" id="questionModal">
+      <div class="modal-content">
+        <h3>Thêm câu hỏi</h3>
+
+        <label>Nội dung câu hỏi</label>
+        <textarea id="modal-question-content" class="form-textarea"></textarea>
+
+        <div id="modal-answers">
+          <div class="answer-row">
+            <input type="radio" name="correctAnswer" value="0" />
+            <input type="text" placeholder="Đáp án A" />
+          </div>
+          <div class="answer-row">
+            <input type="radio" name="correctAnswer" value="1" />
+            <input type="text" placeholder="Đáp án B" />
+          </div>
+          <div class="answer-row">
+            <input type="radio" name="correctAnswer" value="2" />
+            <input type="text" placeholder="Đáp án C" />
+          </div>
+          <div class="answer-row">
+            <input type="radio" name="correctAnswer" value="3" />
+            <input type="text" placeholder="Đáp án D" />
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button onclick="closeQuestionModal()">Hủy</button>
+          <button onclick="saveQuestion()">Lưu câu hỏi</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/create-homework.js"></script>
+  </body>
+</html>

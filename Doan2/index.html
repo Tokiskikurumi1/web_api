@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/Components/reset.css" />
+    <link rel="stylesheet" href="./Assets/CSS/Base/base.css" />
+    <link rel="stylesheet" href="./Assets/CSS/Components/home.css" />
+    <link rel="stylesheet" href="./User_header_footer/css/header.css" />
+    <link rel="stylesheet" href="./User_header_footer/css/footer.css" />
+    <title>Trang chủ</title>
+  </head>
+
+  <body>
+    <!--Header-->
+    <header id="header">
+      <!--Nav bar title-->
+      <nav class="nav-bar-title">
+        <!--LOGO-->
+        <a href="./index.html" class="logo"
+          ><!-- Sử dụng "/" để quay về trang chủ trên GitHub Pages -->
+          <h1>K-ENGLISH</h1>
+        </a>
+        <!--UL_BAR_CENTER-->
+        <ul class="ul-bar-title" id="nav-links">
+          <li><a href="./User_header_footer/about.html">Về chúng tôi</a></li>
+          <li><a href="./User_header_footer/community.html">Cộng đồng</a></li>
+          <li><a href="./User_header_footer/courses.html">Khóa học</a></li>
+          <!-- <li><a href="./books.html">Sách</a></li> -->
+        </ul>
+        <!--UL_BAR_LOGIN-->
+        <ul class="ul-bar-info">
+          <!-- <li class="cart">
+            <a href="./cart.html">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </a>
+          </li> -->
+          <li class="login">
+            <a href="./User_header_footer/login.html"><span>Đăng nhập</span></a>
+            <span>/</span>
+            <a href="./User_header_footer/login.html"><span>Đăng ký</span></a>
+          </li>
+          <li class="menu-icon-hidden">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <i class="fa-solid fa-x" id="close-icon"></i>
+          </li>
+        </ul>
+      </nav>
+      <!--Nav bar menu icon active-->
+      <div class="nav-bar-menu-icon-active">
+        <ul class="ul-bar-menu-icon-active">
+          <li><a href="./User_header_footer/about.html">Về chúng tôi</a></li>
+          <li><a href="./User_header_footer/community.html">Cộng đồng</a></li>
+          <li><a href="./User_header_footer/courses.html">Khóa học</a></li>
+          <!-- <li><a href="./books.html">Sách</a></li> -->
+          <!-- <li><a href="./cart.html">Giỏ hàng</a></li> -->
+        </ul>
+      </div>
+    </header>
+    <!--container-->
+    <div class="container">
+      <div class="content">
+        <h1 class="title-first">
+          <span>HỌC TIẾNG ANH</span> <strong>Ngay bây giờ</strong>
+        </h1>
+        <p>
+          Các bài học tương tác, lộ trình học tập được cá nhân hóa và phản hồi
+          theo thời gian thực giúp bạn đạt được sự trôi chảy nhanh hơn bao giờ
+          hết.
+        </p>
+        <div class="features">
+          <span>📘 50,000+ Học Viên</span>
+          <span>⭐ 4.9/5 Đánh Giá</span>
+          <span>🎓 Đã Chứng Nhận</span>
+        </div>
+        <div class="buttons">
+          <button class="primary">Bắt đầu học miễn phí</button>
+          <button class="secondary">Xem thêm</button>
+        </div>
+      </div>
+      <div class="image-section">
+        <img
+          src="./Assets/images/image_home/096dabbf-65c6-4096-bc72-ddc405f6b795.jpg"
+          alt="Online Learning"
+        />
+        <div class="banner">
+          <h3>Học trực tuyến</h3>
+          <p>Tham gia cùng hàng ngàn sinh viên</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div> -->
+    <!--Content-->
+    <div class="content-container">
+      <!-- <div className="min-h-screen w-full bg-[#0a0a0a] relative"> -->
+
+      <!--Slide course-->
+      <div class="slide-course">
+        <h1>
+          Luyện thi TOEIC, IELTS online Học qua nền tảng App/Website, Zoom
+        </h1>
+        <div class="slides">
+          <div class="slideshow-container">
+            <div class="slide slide1 left" onclick="moveToCenter(0)">
+              <div class="top-slide">
+                <h1>Online Plus</h1>
+                <div class="img-slide">
+                  <img src="./Assets/images/image_home/course_img.png" alt="" />
+                </div>
+              </div>
+              <span>Học trực tiếp với giáo viên qua Zoom.</span>
+              <p>
+                Khóa học cung cấp đầy đủ kiến thức từng level kết hợp luyện đề
+                qua zoom cùng các giáo viên có nhiều năm kinh nghiệm.
+              </p>
+              <div class="slide-see-more"><a href="">Xem thêm.</a></div>
+            </div>
+            <div class="slide slide2 center" onclick="moveToCenter(1)">
+              <div class="top-slide">
+                <h1>Online Basic</h1>
+                <div class="img-slide">
+                  <img src="./Assets/images/image_home/course_img.png" alt="" />
+                </div>
+              </div>
+              <span>Học trực tiếp với giáo viên qua Zoom.</span>
+              <p>
+                Với lộ trình được cá nhân hóa và hệ thống bài giảng lên tới hàng
+                nghìn video/bài test.
+              </p>
+              <div class="slide-see-more"><a href="">Xem thêm.</a></div>
+            </div>
+            <div class="slide slide3 right" onclick="moveToCenter(2)">
+              <div class="top-slide">
+                <h1>Online VIP</h1>
+                <div class="img-slide">
+                  <img src="./Assets/images/image_home/course_img.png" alt="" />
+                </div>
+              </div>
+              <span>Học online qua video bài giảng, hệ thống bài test.</span>
+              <p>
+                Lộ trình khoa học bài bản, có giáo viên hướng dẫn trực tiếp và
+                trợ giảng hỗ trợ ngoài giờ. Khóa học cam kết cung cấp đầy đủ
+                kiến thức theo từng level khác nhau.
+              </p>
+              <div class="slide-see-more"><a href="">Xem thêm.</a></div>
+            </div>
+          </div>
+          <div class="dots">
+            <span class="dot active" onclick="moveToCenter(0)"></span>
+            <span class="dot" onclick="moveToCenter(1)"></span>
+            <span class="dot" onclick="moveToCenter(2)"></span>
+          </div>
+        </div>
+      </div>
+      <!--Popular courses-->
+      <div class="content popular-courses">
+        <h1>KHÓA HỌC PHỔ BIẾN</h1>
+        <div class="popular-courses-list">
+          <div class="box">
+            <a href=""
+              ><img src="./Assets/images/image_home/course_img.png" alt="" />
+              <h3>Tieng anh co ban</h3>
+              <div class="info">
+                <span>1.000.000VND</span>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href=""
+              ><img src="./Assets/images/image_home/course_img.png" alt="" />
+              <h3>Tieng anh co ban</h3>
+
+              <div class="info">
+                <span>1.000.000VND</span>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href=""
+              ><img src="./Assets/images/image_home/course_img.png" alt="" />
+              <h3>Tieng anh co ban</h3>
+              <div class="info">
+                <span>1.000.000VND</span>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href=""
+              ><img src="./Assets/images/image_home/course_img.png" alt="" />
+              <h3>Tieng anh co ban</h3>
+              <div class="info">
+                <span>1.000.000VND</span>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href=""
+              ><img src="./Assets/images/image_home/course_img.png" alt="" />
+              <h3>Tieng anh co ban</h3>
+              <div class="info">
+                <span>1.000.000VND</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="see-more">
+          <a href="./User_header_footer/courses.html">Xem thêm >>></a>
+        </div>
+      </div>
+      <!--OUTSTANDING FEATURES-->
+      <div class="content outstanding-features">
+        <h1>NHỮNG TÍNH NĂNG NỔI BẬT</h1>
+        <div class="item-card">
+          <div class="card">
+            <span>Theo dõi tiến độ học tập</span>
+            <div class="image-card">
+              <img src="./Assets/images/image_home/tien_do.png" alt="" />
+            </div>
+            <p>
+              Hệ thống lưu lại toàn bộ quá trình học tập của bạn, hiển thị phần
+              trăm hoàn thành và gợi ý bài học tiếp theo để giúp bạn tiến bộ mỗi
+              ngày.
+            </p>
+          </div>
+          <div class="card">
+            <span>Học qua app, website, Zoom</span>
+            <div class="image-card">
+              <img src="./Assets/images/image_home/munti.png" alt="" />
+            </div>
+            <p>
+              Linh hoạt học mọi lúc, mọi nơi qua nhiều nền tảng. Bạn có thể học
+              trên ứng dụng di động, trình duyệt web hoặc tham gia lớp học trực
+              tiếp qua Zoom.
+            </p>
+          </div>
+          <div class="card">
+            <span>Kiểm tra và chấm điểm tự động</span>
+            <div class="image-card">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png"
+                alt=""
+              />
+            </div>
+            <p>
+              Hệ thống tự động chấm điểm và đánh giá kết quả học tập ngay sau
+              khi bạn hoàn thành bài kiểm tra, giúp theo dõi sự tiến bộ tức thì
+              và chính xác.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--SCHEDULE-->
+      <div class="content schedule">
+        <h1>LỘ TRÌNH TỰ HỌC TIẾNG ANH</h1>
+        <p>
+          Để thành công trong thời đại công nghệ, tiếng Anh là kỹ năng không thể
+          thiếu. Nắm vững tiếng Anh giúp bạn dễ dàng tiếp cận tài liệu lập trình
+          quốc tế, tham gia các khóa học chuyên sâu và tự tin làm việc với đối
+          tác nước ngoài.
+        </p>
+        <p>
+          Tại KURUMI superLMS, lộ trình học được thiết kế từ căn bản đến nâng
+          cao, phù hợp với mọi cấp độ — từ người mới bắt đầu đến người muốn
+          chinh phục IELTS, TOEIC.
+        </p>
+
+        <div class="list-courses">
+          <!-- Giai đoạn 1 -->
+          <h1>TIẾNG ANH CƠ BẢN</h1>
+          <p>
+            Đây là bước khởi đầu quan trọng giúp bạn xây nền tảng tiếng Anh vững
+            chắc: nắm rõ ngữ pháp cơ bản, phát âm chuẩn và vốn từ vựng thông
+            dụng trong giao tiếp hàng ngày.
+          </p>
+
+          <div class="item-course">
+            <div class="img-course">
+              <img src="./Assets/images/image_home/course_img.png" alt="" />
+            </div>
+            <div class="see-course">
+              <h3>Tiếng Anh cơ bản</h3>
+              <p>
+                Khóa học nền tảng giúp bạn tự tin bắt đầu hành trình học tiếng
+                Anh.
+              </p>
+              <p>
+                Khóa học bao gồm phát âm, ngữ pháp cơ bản, từ vựng chủ đề và hội
+                thoại ngắn, phù hợp với người mất gốc hoặc mới bắt đầu.
+              </p>
+              <a href="">XEM KHÓA HỌC</a>
+            </div>
+          </div>
+
+          <br /><br />
+
+          <!-- Giai đoạn 2 -->
+          <h1>LUYỆN KĨ NĂNG NGHE, ĐỌC</h1>
+          <p>
+            Sau khi nắm vững kiến thức nền, người học sẽ phát triển kỹ năng tiếp
+            nhận ngôn ngữ. Mục tiêu là nghe hiểu nội dung tiếng Anh tự nhiên và
+            đọc hiểu văn bản ở nhiều ngữ cảnh khác nhau.
+          </p>
+
+          <div class="item-course">
+            <div class="img-course">
+              <img src="./Assets/images/image_home/course_img.png" alt="" />
+            </div>
+            <div class="see-course">
+              <h3>Luyện nghe</h3>
+              <p>Khóa học phát triển khả năng nghe hiểu nhanh và chính xác.</p>
+              <p>
+                Học viên được luyện nghe qua video, podcast, và đoạn hội thoại
+                thực tế, giúp làm quen với tốc độ nói thật và giọng bản ngữ.
+              </p>
+              <a href="">XEM KHÓA HỌC</a>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="item-course">
+            <div class="img-course">
+              <img src="./Assets/images/image_home/course_img.png" alt="" />
+            </div>
+            <div class="see-course">
+              <h3>Luyện đọc văn bản</h3>
+              <p>
+                Khóa học giúp bạn đọc hiểu tiếng Anh nhanh và chính xác hơn.
+              </p>
+              <p>
+                Tập trung vào đọc bài báo, email, tài liệu và văn bản thực tế,
+                đồng thời mở rộng vốn từ và cấu trúc câu phức tạp thường gặp
+                trong học tập và công việc.
+              </p>
+              <a href="">XEM KHÓA HỌC</a>
+            </div>
+          </div>
+
+          <br /><br />
+
+          <!-- Giai đoạn 3 -->
+          <h1>LUYỆN THI CHỨNG CHỈ TOEIC, IELTS</h1>
+          <p>
+            Khi đã thành thạo kỹ năng nghe, nói, đọc, viết, bạn có thể bước vào
+            giai đoạn luyện thi chứng chỉ quốc tế. Đây là bước quan trọng để du
+            học, xin việc hoặc nâng cao trình độ chuyên nghiệp.
+          </p>
+
+          <div class="item-course">
+            <div class="img-course">
+              <img src="./Assets/images/image_home/course_img.png" alt="" />
+            </div>
+            <div class="see-course">
+              <h3>Khóa học TOEIC cấp tốc</h3>
+              <p>
+                Luyện thi TOEIC hiệu quả trong thời gian ngắn, đạt mục tiêu
+                nhanh chóng.
+              </p>
+              <p>
+                Học viên được làm quen với cấu trúc đề thi thực tế, chiến lược
+                làm bài và bài tập mô phỏng, giúp đạt điểm cao trong kỳ thi
+                TOEIC.
+              </p>
+              <a href="">XEM KHÓA HỌC</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--FEEDBACK-->
+      <div class="content customer-feedback">
+        <div class="back-circle"></div>
+        <h1>Cảm nhận của học viên</h1>
+        <div class="feed-back">
+          <div class="feed-back1">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half"></i>
+            </div>
+            <p>Rất hay, rất tuyệt, rất nhiệt tình.</p>
+            <h2>Hải Nam</h2>
+            <img src="./Assets/images/image_home/rev3.jpg" alt="" />
+          </div>
+          <div class="feed-back1">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half"></i>
+            </div>
+            <p>Rất hay, rất tuyệt, rất nhiệt tình.</p>
+            <h2>Hải Nam</h2>
+            <img src="./Assets/images/image_home/rev3.jpg" alt="" />
+          </div>
+          <div class="feed-back1">
+            <div class="star">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half"></i>
+            </div>
+            <p>Rất hay, rất tuyệt, rất nhiệt tình.</p>
+            <h2>Hải Nam</h2>
+            <img src="./Assets/images/image_home/rev3.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <div id="main-footer">
+      <div class="list-icon-fixed">
+        <!-- <a href="" class="icon-fixed"
+        ><i class="fa-solid fa-pen-to-square"></i><span>TEST</span></a
+      > -->
+        <a href="./shop.html" class="icon-fixed"
+          ><i class="fa-solid fa-cart-shopping"></i><span>CỬA HÀNG</span></a
+        >
+        <a href="" class="icon-fixed"
+          ><i class="fa-solid fa-comment"></i><span>HỖ TRỢ</span></a
+        >
+      </div>
+      <footer id="footer">
+        <h1>LIÊN HỆ</h1>
+        <div class="footer-contact">
+          <div class="content-footer">
+            <h2>Social media</h2>
+            <p>Các trang mạng xã hội.</p>
+            <div class="social-icon">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-x-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-tiktok"></i>
+            </div>
+          </div>
+          <div class="content-footer">
+            <h2>Hỗ Trợ</h2>
+            <li>
+              <a href="">Sản phẩm</a>
+            </li>
+            <li>
+              <a href="">Giúp đỡ & Hỗ trợ</a>
+            </li>
+            <li>
+              <a href="">chính sách hoàn trả</a>
+            </li>
+            <li>
+              <a href="">điều khoản sử dụng</a>
+            </li>
+            <li>
+              <a href=""></a>
+            </li>
+          </div>
+          <div class="content-footer">
+            <h2>Hỗ Trợ</h2>
+            <li>
+              <a href="">Sản phẩm</a>
+            </li>
+            <li>
+              <a href="">Giúp đỡ & Hỗ trợ</a>
+            </li>
+            <li>
+              <a href="">chính sách hoàn trả</a>
+            </li>
+            <li>
+              <a href="">điều khoản sử dụng</a>
+            </li>
+            <li>
+              <a href=""></a>
+            </li>
+          </div>
+          <div class="content-footer">
+            <h2>Liên Hệ</h2>
+            <div class="social-icon social-icon-last">
+              <span
+                ><i class="fa-solid fa-location-dot"></i>Hòa Đam-Hòa Phong-Mỹ
+                Hào-Hưng Yên </span
+              ><br />
+              <span><i class="fa-solid fa-phone"></i>84+ 000000000</span><br />
+              <span
+                ><i class="fa-solid fa-envelope"></i
+                >vuthanhminh2005@gmail.com</span
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./Assets/JS/home.js"></script>
+    <!-- <script src="./User_header_footer/js/header.js"></script> -->
+    <!-- <script src="./Assets/JS/footer.js"></script> -->
+  </body>
+</html>

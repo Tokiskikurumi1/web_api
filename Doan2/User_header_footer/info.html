@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Assets/CSS/Base/reset.css" />
+    <link rel="stylesheet" href="../Assets/CSS/Base/base.css" />
+    <link rel="stylesheet" href="../Assets/CSS/Base/card.css" />
+    <link rel="stylesheet" href="../Assets/CSS/Base/btn.css" />
+    <link rel="stylesheet" href="./css/info.css" />
+    <title>Thông tin người dùng</title>
+  </head>
+
+  <body>
+    <div class="left" id="cardbasic">
+      <ul>
+        <li><a href="">Thông tin & liên hệ</a></li>
+        <li><a href="">Đổi mật khẩu</a></li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <div class="right-infomation" id="cardbasic">
+        <div class="title">
+          <h2>Thông tin</h2>
+          <div class="btn">
+            <button class="btn-update" id="btnwhite">Cập nhật</button>
+          </div>
+        </div>
+
+        <div class="right-infomation-item">
+          <div class="right-infomation-avatar">
+            <div class="avatar"></div>
+          </div>
+          <div class="content">
+            <div class="right-infomation-content">
+              <h3>Họ tên*</h3>
+              <span class="input-yourname" data-field="yourname"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Tên tài khoản*</h3>
+              <span class="input-username" data-field="username"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Số điện thoại*</h3>
+              <span class="input-phone" data-field="phone"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Email*</h3>
+              <span class="input-email" data-field="email"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Ngày sinh*</h3>
+              <span class="input-dob" data-field="dob"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Tỉnh*</h3>
+              <span class="input-province" data-field="province"></span>
+            </div>
+            <div class="right-infomation-content">
+              <h3>Quận/huyện*</h3>
+              <span class="input-district" data-field="district"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="introduction" id="cardbasic">
+        <div class="title">
+          <h2>Giới thiệu</h2>
+          <div class="btn">
+            <button class="btn-update-intro" id="btnwhite">Cập nhật</button>
+          </div>
+        </div>
+        <div class="intro-content">
+          <span class="input-intro" data-field="intro">Chưa có giới thiệu</span>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/info.js"></script>
+  </body>
+</html>

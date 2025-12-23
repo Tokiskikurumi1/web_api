@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Components/base.css" />
+    <link rel="stylesheet" href="./Components/header_siderbar.css" />
+    <link rel="stylesheet" href="./css/reports.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Thống kê & Báo cáo - E-learning</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <!--LEFT SLIDE, LẤY TỪ SLIDEBA.HTML-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--CONTAINER-->
+    <div id="right-content">
+      <!--LẤY TỪ HEADER.HTML-->
+      <div id="header-placeholder"></div>
+
+      <main>
+        <div class="content">
+          <div class="content-header">
+            <h3>📊 Thống kê & Báo cáo</h3>
+
+            <!-- Bộ lọc -->
+            <div class="actions">
+              <label>Loại thống kê:</label>
+              <select>
+                <option>Người dùng</option>
+                <option>Khóa học</option>
+                <option>Doanh thu</option>
+                <option value="">Tài khoản vi phạm</option>
+              </select>
+
+              <label>Từ ngày:</label>
+              <input type="date" />
+              <label>Đến ngày:</label>
+              <input type="date" />
+
+              <button>Áp dụng</button>
+            </div>
+          </div>
+
+          <!-- Thẻ số liệu -->
+          <div class="stats"></div>
+
+          <!-- BIỂU ĐỒ CỘT -->
+          <div class="chart-column-container">
+            <h3 class="chart-title">Biểu đồ doanh thu theo tháng</h3>
+            <div class="chart-column">
+              <div class="number-and-columns">
+                <div class="number-percen">
+                  <span>100</span>
+                  <span>90</span>
+                  <span>80</span>
+                  <span>70</span>
+                  <span>60</span>
+                  <span>50</span>
+                  <span>40</span>
+                  <span>30</span>
+                  <span>20</span>
+                  <span>10</span>
+                  <span>0</span>
+                </div>
+                <div class="box-column">
+                  <div
+                    class="chart-serie"
+                    style="--i: 80%; --color: var(--blue-)"
+                  >
+                    <h3 class="column-title">80%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 87%; --color: var(--green)"
+                  >
+                    <h3 class="column-title">87%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 60%; --color: var(--orange)"
+                  >
+                    <h3 class="column-title">60%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 50%; --color: var(--purple)"
+                  >
+                    <h3 class="column-title">50%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 80%; --color: var(--blue-)"
+                  >
+                    <h3 class="column-title">80%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 87%; --color: var(--green)"
+                  >
+                    <h3 class="column-title">87%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 60%; --color: var(--orange)"
+                  >
+                    <h3 class="column-title">60%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 50%; --color: var(--purple)"
+                  >
+                    <h3 class="column-title">50%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 60%; --color: var(--orange)"
+                  >
+                    <h3 class="column-title">60%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 50%; --color: var(--purple)"
+                  >
+                    <h3 class="column-title">50%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 60%; --color: var(--orange)"
+                  >
+                    <h3 class="column-title">60%</h3>
+                  </div>
+                  <div
+                    class="chart-serie"
+                    style="--i: 50%; --color: var(--purple)"
+                  >
+                    <h3 class="column-title">50%</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="name-course">
+                <span>Tiếng anh cơ bản </span>
+                <span>Tiếng anh cơ bản</span>
+
+                <span>Tiếng anh cơ bản</span>
+
+                <span>Tiếng anh cơ bản</span>
+              </div>
+            </div>
+          </div>
+          <!-- Bảng -->
+          <div class="reportTable"></div>
+
+          <!-- Xuất file -->
+          <div class="export">
+            <button onclick="window.print()">🖨 Xuất báo cáo</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/header_siderbar.js"></script>
+    <script src="./js/report.js"></script>
+  </body>
+</html>
