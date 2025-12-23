@@ -21,6 +21,16 @@ const statusSelect = document.getElementById("course-status");
 
 const editVideoName = document.getElementById("edit-video-title");
 const editVideoURL = document.getElementById("edit-video-url");
+const createAssignmentModal = document.getElementById(
+  "create-assignment-modal"
+);
+const cancelCreateBtn = document.getElementById("cancel-create");
+const assignmentNameInput = document.getElementById("assignment-name");
+const assignmentDurationInput = document.getElementById("assignment-duration");
+const assignmentDesInput = document.getElementById("assignmentDes-detail");
+const assignmentTypeInput = document.getElementById("assignment-type");
+const assignmentDateInput = document.getElementById("assignment-date");
+const courseNameInput = document.getElementById("course-name");
 
 // ========================== THEEM VIDEO ==========================
 const addVideoBtn = document.getElementById("add-video-btn");
@@ -146,14 +156,70 @@ async function renderVideos() {
       // ===== CREATE =====
       div.querySelector(".create-assignment-btn").onclick = () => {
         localStorage.setItem("videoID", video.videoID);
-        // localStorage.removeItem("assignmentID");
-        window.location.href = "./create-homework.html";
+
+        // set sẵn dữ liệu cho form
+        document.getElementById("course-name").value = course.courseName;
+        document.getElementById("assignment-date").value = new Date()
+          .toISOString()
+          .split("T")[0];
+
+        // reset các field còn lại
+        assignmentNameInput.value = "";
+        assignmentDurationInput.value = "";
+        assignmentDesInput.value = "";
+
+        createAssignmentModal.style.display = "flex";
       };
     }
 
     videoListEl.appendChild(div);
   }
 }
+document.getElementById("cancel-create").onclick = () => {
+  createAssignmentModal.style.display = "none";
+};
+
+document
+  .getElementById("create-course-form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const videoID = Number(localStorage.getItem("videoID"));
+
+    const body = {
+      videoID: videoID,
+      assignmentName: assignmentNameInput.value.trim(),
+      assignmentCourse: course.courseName,
+      assignmentType: assignmentTypeInput.value,
+      assignmentDeadline: document.getElementById("assignment-date").value,
+      assignmentDuration: Number(assignmentDurationInput.value || 0),
+      assginmentDes: assignmentDesInput.value.trim(),
+      assignmentStatus: "completed",
+    };
+
+    try {
+      const res = await fetch(
+        "https://localhost:7057/teacherAssignmentVideo/create-assignment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!res.ok) throw new Error(await res.text());
+
+      alert("Tạo bài tập thành công");
+      createAssignmentModal.style.display = "none";
+      loadVideoCourse(); // reload lại danh sách video
+    } catch (err) {
+      console.error(err);
+      alert("Tạo bài tập thất bại");
+    }
+  });
 
 // ========================== ADD VIDEO ==========================
 

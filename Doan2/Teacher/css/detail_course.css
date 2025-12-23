@@ -270,6 +270,8 @@
 }
 
 .modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea,
 .modal-content input[type="url"] {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -277,6 +279,12 @@
   border-radius: var(--border-radius);
   font-size: 1rem;
   transition: var(--transition);
+}
+
+.modal-content input[type="date"] {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--grey-border);
 }
 
 .modal-content input:focus {

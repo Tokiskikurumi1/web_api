@@ -23,9 +23,9 @@
         <!-- manage-homework.html -->
         <div class="page-header">
           <h2 class="page-title">Bài tập của tôi</h2>
-          <button class="btn btn-primary" id="create-new-homework">
+          <!-- <button class="btn btn-primary" id="create-new-homework">
             <i class="fas fa-plus"></i> Tạo bài tập mới
-          </button>
+          </button> -->
         </div>
 
         <!-- Filter Tabs -->
@@ -141,39 +141,6 @@
                 <button class="btn btn-outline btn-sm text-red">Xóa</button>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Create Assignment Modal -->
-        <div class="modal" id="create-assignment-modal">
-          <div class="modal-content">
-            <h3>Tạo bài tập</h3>
-            <form id="create-course-form">
-              <label>Tên bài tập</label>
-              <input type="text" id="assignment-name" required />
-
-              <label>Khóa học</label>
-              <select id="course-select"></select>
-
-              <label>Video bài giảng</label>
-              <select id="video-select"></select>
-
-              <label>Mô Tả</label>
-              <textarea type="text" id="assignmentDes-detail"></textarea>
-
-              <label>Trạng thái</label>
-              <select id="course-status">
-                <option value="incomplete">Chưa hoàn thành</option>
-                <option value="completed">Đã hoàn thành</option>
-              </select>
-
-              <div class="modal-actions">
-                <button type="button" class="cancel" id="cancel-create">
-                  Hủy
-                </button>
-                <button type="submit" class="save">Tạo khóa học</button>
-              </div>
-            </form>
           </div>
         </div>
 

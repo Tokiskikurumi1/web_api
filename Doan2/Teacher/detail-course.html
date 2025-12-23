@@ -104,11 +104,7 @@
 
             <div class="action-bar">
               <button id="cancel-course" class="cancel-btn">Hủy</button>
-              <button
-                id="save-course"
-                class="save-btn"
-                type="button"
-              >
+              <button id="save-course" class="save-btn" type="button">
                 Lưu thay đổi
               </button>
             </div>
@@ -154,6 +150,39 @@
             <button type="submit" class="save-btn">Lưu</button>
           </div>
         </form>
+      </div>
+
+      <!-- Create Assignment Modal -->
+      <div class="modal" id="create-assignment-modal">
+        <div class="modal-content">
+          <h3>Tạo bài tập</h3>
+          <form id="create-course-form">
+            <label>Tên bài tập</label>
+            <input type="text" id="assignment-name" required />
+
+            <label>Khóa học</label>
+            <input type="text" name="" id="course-name" />
+
+            <label>Loại</label>
+            <input type="text" id="assignment-type" />
+
+            <label for="">Thời gian làm bài</label>
+            <input type="number" id="assignment-duration" />
+
+            <label for="">Ngày tạo </label>
+            <input type="date" id="assignment-date" />
+
+            <label>Mô Tả</label>
+            <textarea type="text" id="assignmentDes-detail"></textarea>
+
+            <div class="modal-actions">
+              <button type="button" class="cancel" id="cancel-create">
+                Hủy
+              </button>
+              <button type="submit" class="save">Tạo bài tập</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 

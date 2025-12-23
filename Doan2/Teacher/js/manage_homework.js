@@ -224,17 +224,15 @@ function escapeHtml(text) {
   div.textContent = text;
   return div.innerHTML;
 }
-// ==============================================
 
 // ======================= XÓA =======================
 async function deleteAssignment(id) {
   if (!confirm("Bạn có chắc muốn xóa bài tập này?")) return;
 
-  if (!confirm("Bạn có chắc muốn xóa khóa học này?")) return;
 
   try {
     const res = await fetch(
-      `https://localhost:7057/teacher/delete-assignment/${id}`,
+      `https://localhost:7057/teacherAssignmentVideo/delete-assignment/${id}`,
       {
         method: "DELETE",
         headers: {
