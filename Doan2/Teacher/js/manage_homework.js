@@ -1,37 +1,30 @@
 // ========================== AUTH CHECK ==========================
-let role = localStorage.getItem("role");
+const role = localStorage.getItem("role");
 const teacherId = localStorage.getItem("userid");
+const token = localStorage.getItem("accessToken");
 
-if (role !== "Teacher" || !teacherId) {
+if (role !== "Teacher" || !teacherId || !token) {
   alert("Bạn không có quyền truy cập");
   window.location.href = "../../User_header_footer/login.html";
 }
-const token = localStorage.getItem("accessToken");
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("manage_homework.js loaded");
-  loadAssignments(); // mặc định load "all"
-  setupTabs();
-  updateTabCounts();
-});
-
-let allAssignments = []; // toàn bộ bài tập
+// ========================== STATE ==========================
+let allAssignments = [];
+let currentFilter = "all";
 
 // ========================== DOM READY ==========================
 document.addEventListener("DOMContentLoaded", () => {
-  loadAssignmentsAPI("all"); // 🔥 PHẢI GỌI API
   setupTabs();
+  loadAssignmentsAPI();
 });
 
 // ======================= LOAD ASSIGNMENTS =======================
-async function loadAssignmentsAPI(filter = "all") {
+async function loadAssignmentsAPI() {
   try {
     const res = await fetch(
       "https://localhost:7057/teacherAssignmentVideo/get-all-assignments",
       {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
 
@@ -39,16 +32,16 @@ async function loadAssignmentsAPI(filter = "all") {
 
     const data = await res.json();
 
-    // 🔥 MAP FIELD API → UI
+    // MAP API → STATE
     allAssignments = data.map((a) => ({
       id: a.assignmentID,
       title: a.assignmentName,
       course: a.assignmentCourse,
       deadline: a.assignmentDeadline,
-      status: a.assignmentStatus === "completed" ? "published" : "draft",
+      status: a.assignmentStatus === "completed" ? "completed" : "incomplete",
     }));
 
-    renderAssignments(filter);
+    renderAssignments();
     updateTabCounts();
   } catch (err) {
     console.error(err);
@@ -56,16 +49,16 @@ async function loadAssignmentsAPI(filter = "all") {
   }
 }
 
-// ======================= RENDER ASSIGNMENTS =======================
-function renderAssignments(filter = "all") {
+// ======================= RENDER =======================
+function renderAssignments() {
   const grid = document.querySelector(".assignment-grid");
   if (!grid) return;
 
   grid.innerHTML = "";
 
   const filtered = allAssignments.filter((a) => {
-    if (filter === "published") return a.status === "published";
-    if (filter === "draft") return a.status === "draft";
+    if (currentFilter === "completed") return a.status === "completed";
+    if (currentFilter === "incomplete") return a.status === "incomplete";
     return true;
   });
 
@@ -83,22 +76,17 @@ function renderAssignments(filter = "all") {
   });
 }
 
-// ======================= CREATE CARD =======================
+// ======================= CARD =======================
 function createAssignmentCard(a) {
   const card = document.createElement("div");
   card.className = "assignment-card";
 
-  const submitted = 0; // Sẽ cập nhật sau
-  const notSubmitted = 0;
-  const total = submitted + notSubmitted;
-  const percent = total > 0 ? Math.round((submitted / total) * 100) : 0;
-
-  if (a.status === "published") {
+  if (a.status === "completed") {
     card.innerHTML = `
       <div class="assignment-card-header">
         <div class="assignment">
           <h3 class="assignment-title">${escapeHtml(a.title)}</h3>
-          <span class="badge badge-published">Đã xuất bản</span>
+          <span class="badge badge-published">Đã hoàn thành</span>
         </div>
         <div class="assignment-meta">
           <span><i class="fas fa-book"></i> ${escapeHtml(
@@ -112,15 +100,14 @@ function createAssignmentCard(a) {
       <div class="assignment-body">
         <div class="stats-grid" style="opacity: 0;">
           <div class="stat-item">
-            <div class="stat-value done">${submitted}</div>
+            <div class="stat-value done">0</div>
             <div class="stat-label">Đã nộp</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value done-yet">${notSubmitted}</div>
+            <div class="stat-value done-yet">0</div>
             <div class="stat-label">Chưa nộp</div>
           </div>
         </div>
-        
         <div class="assignment-actions">
           <button class="btn btn-primary btn-sm" onclick="viewDetail('${
             a.id
@@ -139,22 +126,15 @@ function createAssignmentCard(a) {
       <div class="assignment-card-header">
         <div class="assignment">
           <h3 class="assignment-title">${escapeHtml(a.title)}</h3>
-          <span class="badge badge-draft">Bản nháp</span>
+          <span class="badge badge-draft">Chưa hoàn thành</span>
         </div>
         <div class="assignment-meta">
           <span><i class="fas fa-book"></i> ${escapeHtml(
             a.course || "Chưa chọn khóa"
           )}</span>
-          <span><i class="fas fa-calendar"></i> Chưa đặt hạn</span>
         </div>
       </div>
       <div class="assignment-body">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-value">—</div>
-            <div class="stat-label">Chưa xuất bản</div>
-          </div>
-        </div>
         <div class="assignment-actions">
           <button class="btn btn-outline btn-sm" onclick="editDraft('${
             a.id
@@ -170,7 +150,7 @@ function createAssignmentCard(a) {
   return card;
 }
 
-// ======================= TAB =======================
+// ======================= TABS =======================
 function setupTabs() {
   document.querySelectorAll(".filter-tabs .tab").forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -181,25 +161,28 @@ function setupTabs() {
       tab.classList.add("active");
 
       const text = tab.innerText;
-      if (text.includes("Tất cả")) renderAssignments("all");
-      else if (text.includes("Đã xuất bản")) renderAssignments("published");
-      else renderAssignments("draft");
+      if (text.includes("Tất cả")) currentFilter = "all";
+      else if (text.includes("Hoàn thành")) currentFilter = "completed";
+      else currentFilter = "incomplete";
+
+      renderAssignments();
     });
   });
 }
 
 // ======================= COUNT =======================
 function updateTabCounts() {
-  const published = allAssignments.filter(
-    (a) => a.status === "published"
+  const completed = allAssignments.filter(
+    (a) => a.status === "completed"
   ).length;
-  const draft = allAssignments.filter((a) => a.status === "draft").length;
-  const total = allAssignments.length;
+  const incomplete = allAssignments.filter(
+    (a) => a.status === "incomplete"
+  ).length;
 
   const tabs = document.querySelectorAll(".filter-tabs .tab");
-  if (tabs[0]) tabs[0].innerText = `Tất cả (${total})`;
-  if (tabs[1]) tabs[1].innerText = `Đã xuất bản (${published})`;
-  if (tabs[2]) tabs[2].innerText = `Bản nháp (${draft})`;
+  if (tabs[0]) tabs[0].innerText = `Tất cả (${allAssignments.length})`;
+  if (tabs[1]) tabs[1].innerText = `Hoàn thành (${completed})`;
+  if (tabs[2]) tabs[2].innerText = `Chưa hoàn thành (${incomplete})`;
 }
 
 // ======================= ACTIONS =======================
@@ -211,6 +194,32 @@ function editDraft(id) {
 function viewDetail(id) {
   localStorage.setItem("detailAssignmentId", id);
   window.location.href = "detail-homework.html";
+}
+
+// ======================= DELETE =======================
+async function deleteAssignment(id) {
+  id = Number(id);
+  if (!confirm("Bạn có chắc muốn xóa bài tập này?")) return;
+
+  try {
+    const res = await fetch(
+      `https://localhost:7057/teacherAssignmentVideo/delete-assignment/${id}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+
+    if (!res.ok) throw new Error("Xóa thất bại");
+    allAssignments = allAssignments.filter((a) => a.id !== id);
+
+    renderAssignments();
+    updateTabCounts();
+    alert("Xóa bài tập thành công");
+  } catch (err) {
+    console.error(err);
+    alert("Không thể xóa bài tập");
+  }
 }
 
 // ======================= UTIL =======================
@@ -225,51 +234,11 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-// ======================= XÓA =======================
-async function deleteAssignment(id) {
-  if (!confirm("Bạn có chắc muốn xóa bài tập này?")) return;
-
-
-  try {
-    const res = await fetch(
-      `https://localhost:7057/teacherAssignmentVideo/delete-assignment/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    if (!res.ok) throw new Error("Xóa thất bại");
-
-    // XÓA TRÊN UI
-    allAssignments = allAssignments.filter((a) => a.id !== id);
-    renderAssignments(getActiveFilter());
-  } catch (err) {
-    console.error(err);
-    alert("Không thể xóa bài tập");
-  }
-
-  // Cập nhật lại danh sách hiện tại
-  allAssignments = allAssignments.filter((a) => a.id !== id);
-  updateTabCounts();
-  loadAssignments(getActiveFilter());
-}
-
-function getActiveFilter() {
-  const active = document.querySelector(".filter-tabs .tab.active");
-  const text = active?.textContent || "";
-  if (text.includes("Tất cả")) return "all";
-  if (text.includes("Đã xuất bản")) return "published";
-  return "draft";
-}
-
-// ======================= TẠO MỚI =======================
+// ======================= CREATE NEW =======================
 document
   .getElementById("create-new-homework")
   ?.addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("editingAssignmentId"); // đảm bảo tạo mới
+    localStorage.removeItem("editingAssignmentId");
     window.location.href = "./create-homework.html";
   });

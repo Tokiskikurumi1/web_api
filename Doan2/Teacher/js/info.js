@@ -6,8 +6,10 @@ if (role !== "Teacher" || !teacherId) {
   alert("Bạn không có quyền truy cập");
   window.location.href = "../User_header_footer/login.html";
 }
+
 const token = localStorage.getItem("accessToken");
 
+// ========================== DOM ELEMENTS ==========================
 const fullNameInput = document.getElementById("full-name");
 const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone-number");
@@ -15,32 +17,40 @@ const dobInput = document.getElementById("date-of-birth");
 const genderSelect = document.getElementById("gender");
 const provinceInput = document.getElementById("province");
 const districtInput = document.getElementById("district");
+
 const oldPasswordInput = document.getElementById("current-password");
 const newPasswordInput = document.getElementById("new-password");
 const confirmPasswordInput = document.getElementById("confirm-password");
 
-// Load thông tin
+// ========================== STATE ==========================
+let infoTeacher = [];
+
+// ========================== LOAD USER INFO INTO FORM ==========================
 function loadUserInfo() {
-  if (!currentUser) {
-    return;
-  }
-  fullNameInput.value = currentUser.yourname || "";
-  emailInput.value = currentUser.email || "";
-  phoneInput.value = currentUser.phone || "";
-  dobInput.value = currentUser.dob || "";
-  genderSelect.value = currentUser.gender || "";
-  provinceInput.value = currentUser.province || "";
-  districtInput.value = currentUser.district || "";
+  if (!infoTeacher) return;
+
+  fullNameInput.value = infoTeacher.userName || "";
+  dobInput.value = infoTeacher.date_of_Birth || "";
+  genderSelect.value = infoTeacher.gender || "";
+  districtInput.value = infoTeacher.district || "";
+  provinceInput.value = infoTeacher.province || "";
+  phoneInput.value = infoTeacher.phoneNumber || "";
+  emailInput.value = infoTeacher.email || "";
 }
 
-document.addEventListener("DOMContentLoaded", loadUserInfo);
+// ========================== INITIAL LOAD ==========================
+document.addEventListener("DOMContentLoaded", () => {
+  loadInfoTeacher();
+  loadUserInfo();
+});
 
-// Lưu thông tin
+// ========================== UPDATE TEACHER INFO ==========================
 document.getElementById("save-btn")?.addEventListener("click", () => {
   if (!fullNameInput.value.trim()) {
     alert("Họ và tên không được để trống!");
     return;
   }
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
     alert(
@@ -49,55 +59,63 @@ document.getElementById("save-btn")?.addEventListener("click", () => {
     return;
   }
 
-  let phoneToSave = ""; // mặc định để trống
+  let phoneToSave = "";
   if (phoneInput.value.trim() !== "") {
     if (/[^0-9\s\-\+\(\)]/.test(phoneInput.value)) {
-      return alert(
-        "Số điện thoại không được chứa chữ cái hoặc ký tự đặc biệt!"
-      );
+      alert("Số điện thoại không được chứa chữ cái hoặc ký tự đặc biệt!");
+      return;
     }
 
     const phoneDigits = phoneInput.value.replace(/\D/g, "");
     if (phoneDigits.length !== 10) {
-      return alert("Số điện thoại phải đúng 10 chữ số!");
+      alert("Số điện thoại phải đúng 10 chữ số!");
+      return;
     }
 
     phoneToSave = phoneDigits;
   }
 
   const updatedData = {
-    yourname: fullNameInput.value.trim(),
-    email: emailInput.value.trim(),
-    phone: phoneToSave,
-    dob: dobInput.value,
+    userName: fullNameInput.value.trim(),
+    date_of_Birth: dobInput.value,
     gender: genderSelect.value,
-    province: provinceInput.value.trim(),
     district: districtInput.value.trim(),
+    province: provinceInput.value.trim(),
+    phoneNumber: phoneToSave,
+    email: emailInput.value.trim(),
   };
 
-  const allUsers = JSON.parse(localStorage.getItem("listusers") || "{}");
-  if (allUsers[currentUser.id]) {
-    allUsers[currentUser.id] = { ...allUsers[currentUser.id], ...updatedData };
-    localStorage.setItem("listusers", JSON.stringify(allUsers));
-    localStorage.setItem("currentUser", currentUser.id); // CHỈ LƯU ID!
-    alert("Cập nhật thành công!");
+  try {
+    fetch("https://localhost:7057/teacherInfo/update-info-teacher", {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    alert("Cập nhật thông tin thành công");
+    loadInfoTeacher();
+  } catch (error) {
+    console.error("Error updating teacher info:", error);
+    alert("Cập nhật thông tin thất bại");
   }
 });
 
-// ======================= ĐỔI MẬT KHẨU  =======================
+// ======================= CHANGE PASSWORD UI =======================
 document
   .getElementById("change-password-btn")
   ?.addEventListener("click", () => {
     document.getElementById("modal-change-password")?.classList.add("show");
   });
 
-// Đóng modal
 function closeModal() {
   const modal = document.getElementById("modal-change-password");
-  if (modal) {
-    modal.classList.remove("show");
-    modal.querySelectorAll("input").forEach((i) => (i.value = ""));
-  }
+  if (!modal) return;
+
+  modal.classList.remove("show");
+  modal.querySelectorAll("input").forEach((i) => (i.value = ""));
 }
 
 document
@@ -111,50 +129,92 @@ document
     }
   });
 
-// XỬ LÝ ĐỔI MẬT KHẨU
+// ======================= CHANGE PASSWORD LOGIC =======================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#modal-change-password form");
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const oldPass = oldPasswordInput.value.trim();
-    const newPass = newPasswordInput.value;
-    const confirmPass = confirmPasswordInput.value;
+    const newPass = newPasswordInput.value.trim();
+    const confirmPass = confirmPasswordInput.value.trim();
 
-    // Validate
+    // ===== VALIDATE =====
     if (!oldPass || !newPass || !confirmPass) {
-      return alert("Vui lòng nhập đầy đủ các trường!");
+      alert("Vui lòng nhập đầy đủ các trường!");
+      return;
     }
+
     if (newPass !== confirmPass) {
-      return alert("Mật khẩu xác nhận không khớp!");
-    }
-    if (newPass.length < 8) {
-      return alert("Mật khẩu mới phải có ít nhất 8 ký tự!");
+      alert("Mật khẩu xác nhận không khớp!");
+      return;
     }
 
-    // Lấy dữ liệu thật từ listusers
-    const allUsers = JSON.parse(localStorage.getItem("listusers") || "{}");
-    const user = allUsers[currentUser.id]; // currentUser lấy từ hàm getCurrentUser() ở trên
-
-    if (!user) {
-      return alert("Lỗi hệ thống: Không tìm thấy tài khoản!");
-    }
-    if (user.password !== oldPass) {
-      return alert("Mật khẩu hiện tại không đúng!");
+    if (newPass.length < 6) {
+      alert("Mật khẩu mới phải có ít nhất 6 ký tự!");
+      return;
     }
 
-    // Cập nhật mật khẩu mới
-    user.password = newPass;
-    allUsers[currentUser.id] = user;
+    try {
+      const response = await fetch(
+        "https://localhost:7057/teacherUpdatePass/update-password",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            currentPass: oldPass,
+            newPass: newPass,
+          }),
+        }
+      );
 
-    localStorage.setItem("listusers", JSON.stringify(allUsers));
+      const result = await response.json();
 
-    alert("Đổi mật khẩu thành công! Vui lòng đăng nhập lại.");
+      if (!response.ok) {
+        alert(result.message || "Đổi mật khẩu thất bại!");
+        return;
+      }
 
-    // Đăng xuất
-    localStorage.removeItem("currentUser");
-    window.location.href = "../User_header_footer/login.html";
+      alert("Đổi mật khẩu thành công! Vui lòng đăng nhập lại.");
+
+      // ===== LOGOUT =====
+      localStorage.clear();
+      window.location.href = "../User_header_footer/login.html";
+    } catch (error) {
+      console.error("Change password error:", error);
+      alert("Không thể kết nối server!");
+    }
   });
 });
+
+
+// ========================== API: LOAD TEACHER INFO ==========================
+async function loadInfoTeacher() {
+  try {
+    const response = await fetch(
+      "https://localhost:7057/teacherInfo/get-info-teacher",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    infoTeacher = data[0];
+
+    localStorage.setItem("currentUserInfo", JSON.stringify(infoTeacher));
+    window.dispatchEvent(new Event("userInfoUpdated"));
+
+    loadUserInfo();
+  } catch (error) {
+    console.error("Error fetching teacher info:", error);
+  }
+}

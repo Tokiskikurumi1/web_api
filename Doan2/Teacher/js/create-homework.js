@@ -97,16 +97,20 @@ async function renderQuestions() {
         </div>
       </div>
 
-      <textarea disabled>${q.content}</textarea>
+      <textarea class="form-textarea question-content" disabled>${
+        q.content
+      }</textarea>
 
       <div class="answer-list">
         ${answers
           .sort((a, b) => a.answerIndex - b.answerIndex)
           .map(
             (a) => `
-            <div class="answer-item">
+            <div class="answer-option">
               <input type="radio" ${a.isCorrect ? "checked" : ""} disabled />
-              <input type="text" value="${a.answerText}" disabled />
+              <input type="text" class="answer-input" value="${
+                a.answerText
+              }" disabled />
             </div>
           `
           )
