@@ -176,7 +176,7 @@ createForm.onsubmit = async (e) => {
     courseDes: document.getElementById("course-detail").value,
     coursePrice: document.getElementById("course-price").value,
     courseStatus: document.getElementById("course-status").value,
-    courseImage: null, // sau này upload file xử lý riêng
+    courseImage: null,
   };
 
   try {
