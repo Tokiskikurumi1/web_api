@@ -1,45 +1,62 @@
 const API_BASE = "https://localhost:7204/api";
 
-const app = angular.module("loginApp", []);
+// ========================== DOM ==========================
+const accountInput = document.getElementById("account");
+const passInput = document.getElementById("pass");
+const roleSelect = document.getElementById("role");
+const loginBtn = document.getElementById("loginBtn");
 
-app.controller("LoginController", function ($scope, $http) {
-  $scope.login = {
-    account: "",
-    pass: "",
-    role: "",
-  };
+// ========================== LOGIN ==========================
+loginBtn.addEventListener("click", async () => {
+  const account = accountInput.value.trim();
+  const pass = passInput.value.trim();
+  const selectedRole = roleSelect.value;
 
-  $scope.loginSubmit = function () {
-    if (!$scope.login.account || !$scope.login.pass) {
-      alert("Vui lòng nhập tài khoản và mật khẩu");
+  if (!account || !pass) {
+    alert("Vui lòng nhập tài khoản và mật khẩu");
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        account: account,
+        pass: pass,
+      }),
+    });
+
+    if (!res.ok) {
+      alert("Sai tài khoản hoặc mật khẩu");
       return;
     }
 
-    $http
-      .post(`${API_BASE}/auth/login`, {
-        account: $scope.login.account,
-        pass: $scope.login.pass,
-      })
-      .then(function (res) {
-        const data = res.data;
+    const data = await res.json();
 
-        // LƯU TOKEN
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("role", data.role);
-        localStorage.setItem("user", data.user);
-        localStorage.setItem("userid", data.userid);
+    // ===== CHECK ROLE (chỉ so sánh) =====
+    if (selectedRole && data.role !== selectedRole) {
+      alert("Vai trò không đúng với tài khoản!");
+      return;
+    }
 
-        alert("Đăng nhập thành công");
+    // ===== SAVE TOKEN =====
+    localStorage.setItem("accessToken", data.accessToken);
+    localStorage.setItem("role", data.role);
+    localStorage.setItem("user", data.user);
+    localStorage.setItem("userid", data.userid);
 
-        if (data.role === "Teacher") {
-          window.location.href = "../Teacher/teacher.html";
-        } else {
-          window.location.href = "./info.html";
-        }
-      })
-      .catch(function (err) {
-        console.error(err);
-        alert("Sai tài khoản hoặc không kết nối được server");
-      });
-  };
+    alert("Đăng nhập thành công");
+
+    if (data.role === "Teacher") {
+      window.location.href = "../Teacher/teacher.html";
+    } else {
+      window.location.href = "./info.html";
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Không kết nối được server");
+  }
 });

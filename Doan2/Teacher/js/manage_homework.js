@@ -191,6 +191,7 @@ function editDraft(id) {
   window.location.href = "create-homework.html";
 }
 
+// ======================= VIEW DETAIL =======================
 function viewDetail(id) {
   localStorage.setItem("detailAssignmentId", id);
   window.location.href = "detail-homework.html";

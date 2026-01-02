@@ -152,7 +152,7 @@ function closeQuestionModal() {
   document.getElementById("questionModal").classList.add("hidden");
 }
 
-// ========================== CREATE / UPDATE ==========================
+// ========================== TẠO / CẬP NHẬT ==========================
 async function saveQuestion() {
   const content = document
     .getElementById("modal-question-content")
@@ -169,7 +169,7 @@ async function saveQuestion() {
     return;
   }
 
-  // ================= UPDATE =================
+  // ================= CẬP NHẬT =================
   if (editingQuestionID) {
     await fetch(
       "https://localhost:7057/teacherManageQuestion/update-question",
@@ -208,7 +208,7 @@ async function saveQuestion() {
     }
   }
 
-  // ================= CREATE =================
+  // ================= TẠO =================
   else {
     const qRes = await fetch(
       "https://localhost:7057/teacherManageQuestion/create-new-question",
@@ -260,7 +260,7 @@ async function saveQuestion() {
   await loadQuestions(editingAssignmentId);
 }
 
-// ========================== EDIT ==========================
+// ========================== CHỈNH SỬA ==========================
 async function editQuestion(questionID) {
   editingQuestionID = questionID;
 
@@ -298,7 +298,7 @@ async function editQuestion(questionID) {
   openQuestionModal();
 }
 
-// ========================== DELETE ==========================
+// ========================== XÓA  ==========================
 async function removeQuestion(btn) {
   const questionID = btn.closest(".question-builder").dataset.questionId;
   if (!confirm("Xóa câu hỏi này?")) return;
@@ -323,5 +323,51 @@ function closeQuestionModal() {
   editingAnswers = [];
 }
 
+// ========================== LOAD BÀI TẬP THEO ID BÀI TẬP ==========================
+async function loadAssignmentForEdit(id) {
+  try {
+    const res = await fetch(
+      `https://localhost:7057/teacherAssignmentVideo/get-assignment-by-id/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!res.ok) throw new Error("Không load được bài tập");
+
+    const data = await res.json();
+
+    // nếu API trả object
+    const a = Array.isArray(data) ? data[0] : data;
+
+    if (!a) throw new Error("Không có dữ liệu bài tập");
+
+    // ===== ĐỔ DATA VÀO FORM =====
+    titleInput.value = a.assignmentName || "";
+    courseInput.value = a.assignmentCourse || "";
+    deadlineInput.value = a.assignmentDeadline?.slice(0, 10) || "";
+    descriptionInput.value = a.assignmentDes || "";
+    durationInput.value = a.assignmentDuration || "";
+    statusSelect.value = a.assignmentStatus || "";
+
+    // ===== LOAD QUESTIONS =====
+    await loadQuestions(a.assignmentID);
+  } catch (err) {
+    console.error(err);
+    alert("Chưa có câu hỏi cho bài tập này!");
+  }
+}
+
 // ========================== INIT ==========================
-loadAssignments();
+// loadAssignments();
+document.addEventListener("DOMContentLoaded", async () => {
+  if (editingAssignmentId) {
+    // ===== EDIT MODE =====
+    await loadAssignmentForEdit(editingAssignmentId);
+  } else {
+    // ===== CREATE MODE =====
+    console.log("Test tạo bài tập");
+  }
+});
