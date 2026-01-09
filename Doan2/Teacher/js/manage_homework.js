@@ -9,6 +9,8 @@ if (role !== "Teacher" || !teacherId || !token) {
 }
 
 // ========================== STATE ==========================
+const assGrid = document.querySelector(".assignment-grid");
+
 let allAssignments = [];
 let currentFilter = "all";
 
@@ -28,11 +30,24 @@ async function loadAssignmentsAPI() {
       }
     );
 
-    if (!res.ok) throw new Error("Không load được assignments");
+    const text = await res.text();
 
-    const data = await res.json();
+    if (!res.ok) {
+      assGrid.style.display = "block";
+      assGrid.innerHTML = `
+        <div style="
+          padding: 2rem;
+          text-align: center;
+          font-weight: 600;
+        ">
+          ${text}
+        </div>
+      `;
+      return;
+    }
+    assGrid.style.display = "grid";
+    const data = JSON.parse(text);
 
-    // MAP API → STATE
     allAssignments = data.map((a) => ({
       id: a.assignmentID,
       title: a.assignmentName,

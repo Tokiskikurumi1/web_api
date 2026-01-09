@@ -8,6 +8,7 @@ if (role !== "Teacher" || !teacherId) {
 }
 const token = localStorage.getItem("accessToken");
 // ========================== DOM ==========================
+const courseList = document.getElementById("course-list");
 const courseListEl = document.getElementById("course-list");
 const searchBar = document.querySelector(".search-bar");
 const fromDateEl = document.getElementById("fromDate");
@@ -24,17 +25,32 @@ async function loadCourses() {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
     });
 
-    if (!res.ok) throw new Error("Không lấy được khóa học");
+    const text = await res.text();
 
-    courses = await res.json();
+    if (!res.ok) {
+      courseList.style.display = "block";
+      courseListEl.innerHTML = `
+        <div style="
+          padding: 2rem;
+          text-align: center;
+          font-weight: 600;
+        ">
+          ${text}
+        </div>
+      `;
+      return;
+    }
+    courseList.style.display = "grid";
+    const data = JSON.parse(text);
+
+    courses = Array.isArray(data) ? data : [];
     renderCourses();
   } catch (err) {
-    console.error(err);
-    alert("Lỗi tải khóa học");
+    console.error("JS crash:", err);
+    alert("Lỗi kết nối server");
   }
 }
 

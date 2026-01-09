@@ -83,16 +83,27 @@ async function loadStudentData() {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
       }
     );
 
-    if (!res.ok) throw new Error("Không lấy được danh sách học viên");
+    const text = await res.text();
 
-    const data = await res.json();
+    if (!res.ok) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align:center; padding:2rem;">
+            ${text}
+          </td>
+        </tr>
+      `;
+      paginationInfo.textContent = "Hiển thị 0 học viên";
+      return;
+    }
 
-    // Map đúng field theo backend
+    // ✅ Nếu OK → parse JSON
+    const data = JSON.parse(text);
+
     allStudents = data.map((s) => ({
       id: s.studentID,
       name: s.studentName,
@@ -106,7 +117,7 @@ async function loadStudentData() {
     renderTable();
   } catch (err) {
     console.error(err);
-    alert("Lỗi tải danh sách học viên");
+    alert("Lỗi kết nối server");
   }
 }
 

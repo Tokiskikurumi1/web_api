@@ -190,7 +190,7 @@ document
       videoID: videoID,
       assignmentName: assignmentNameInput.value.trim(),
       assignmentCourse: course.courseName,
-      assignmentType: assignmentTypeInput.value,
+      assignmentType: "Quizz",
       assignmentDeadline: document.getElementById("assignment-date").value,
       assignmentDuration: Number(assignmentDurationInput.value || 0),
       assginmentDes: assignmentDesInput.value.trim(),
@@ -217,7 +217,7 @@ document
       loadVideoCourse(); // reload lại danh sách video
     } catch (err) {
       console.error(err);
-      alert("Tạo bài tập thất bại");
+      alert(err.message || "Lỗi khi tạo bài tập");
     }
   });
 
